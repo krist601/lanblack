@@ -1,0 +1,55 @@
+html, body {margin: 0; padding: 0;}
+body {color: #695849;}
+#wrapper {width: 650px; margin: 30px auto; padding: 40px; box-shadow: 2px 2px 2px #ccc; border: solid 1px #695849;}
+
+.line {width: 61px; height: 1px; background: #695849; margin: 10px 0;}
+.titlewrap {float: right; text-align: right;}
+.titlewrap h1.title {text-transform: uppercase; margin: 0; font-weight: normal; font-size: 33px;} 
+.bl {color: #583a5d;}
+.pp {color: #903356;}
+.or {color: #9d7b36;}
+.titlewrap .subtitle {margin: 15px 0;}
+.titlewrap .line {float: right;}
+.titlewrap img {clear: both;}
+.leftwrap {float: left; width: 300px;}
+
+
+
+
+
+.idiomas div {width: 29px; height: 25px; cursor: pointer; margin-right: 10px; float: left; background-size: 35px 25px !important;}
+.idiomas:after {clear: both; display: block; content:"";}
+.idiomas .es {background: url('images/es.png') center center no-repeat;}
+.idiomas .br {background: url('images/br.png') center center no-repeat;}
+.idiomas .en {background: url('images/us.png') center center no-repeat;}
+
+.infowrap {clear: both; margin-top: 20px;}
+.infowrap p {margin: 5px 0;}
+.infowrap .nombre {font-weight: bold;}
+
+.contentwrap {clear: both; font-family: "Tahoma"; font-size: 13px;}
+.contentwrap .line { margin: -12px 0 0 40px;}
+.contentwrap ul {margin-top: 3px;}
+.contentwrap .row b {text-transform: uppercase; margin-left:17px;}
+.contentwrap li.sub {list-style: none;}
+.contentwrap li.sub ul {padding:0;}
+.contentwrap li.sub li {list-style-type: none; margin-left:17px;}
+.contentwrap li.row {margin: 10px 0;}
+.contentwrap li input {float: left; margin-left: -36px;
+
+}
+
+
+
+.botones {float: right; margin-top: 10px;}
+.botones input {border: none; background: #903352; color: #fff; font-family: "Tahoma"; padding: 7px 20px; margin-top: 10px; float: right; width: 200px	
+-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;}
+
+.clear {clear: both;}
+.nreserva, .nvuelo {margin: 5px 0;}
+.nreserva div,
+.nvuelo div {float: left; font-weight: bold;}
+
+div[lang="br"], div[lang="en"] {display: none;}
