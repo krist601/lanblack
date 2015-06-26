@@ -120,31 +120,6 @@ class UsersController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
-        function login() {
-            $this->set("textVar","Ingresa con tu cuenta de LAN/TAM Menú");
-            $this->layout = 'login';
-            if($this->Session->read('Auth.User')){
-                return $this->redirect(array('controller'=>'pages','action' => 'index'));
-            }else{
-            if ($this->request->is('post')) {
-                // Important: Use login() without arguments! See warning below.
-                if ($this->Auth->login()) {
-                    date_default_timezone_set('Chile/Continental');
-                    $user=$this->Session->read('Auth.User');
-                    $user_array=array('idUser'=>$user['idUser'],'lastConnection'=>date('Y-m-d H:i:s'));
-                    $this->User->save($user_array);
-                    if($user['defaultLogin']==""){
-                        return $this->redirect($this->Auth->redirectUrl());
-                    }else{
-                        return $this->redirect(array('controller'=>'tweets','action' => $user['defaultLogin']));
-                    }
-                    // Prior to 2.3 use
-                    // `return $this->redirect($this->Auth->redirect());`
-                }
-                $this->Session->setFlash('<div class="alert alert-danger"> <span class="vd_alert-icon"></span><strong>Error! </strong>El Usuario o la Contraseña son erroneos </div>');
-            }
-        }
-    }
     function forgetPassword() {
         $this->set("textVar","Ingresa su correo electrónico para recuperar contraseña");
         $this->layout = 'login';
@@ -220,7 +195,7 @@ class UsersController extends AppController {
                     $this->request->data = $this->User->find('first', $options);
                 }
             }else{
-                $this->Session->setFlash('<div class="alert alert-danger"> <span class="vd_alert-icon"></span><strong>Error! </strong>sesion de ecuperación de contraseña vencido </div>');
+                $this->Session->setFlash('<div class="alert alert-danger"> <span class="vd_alert-icon"></span><strong>Error! </strong>sesión de recuperación de contraseña vencido </div>');
                 return $this->redirect(array('controller'=>'users','action' => 'login'));
             }
         }
@@ -229,4 +204,44 @@ class UsersController extends AppController {
     function logout() {
         $this->redirect($this->Auth->logout());
     }
+        function login() {
+            $this->set("textVar","Ingresa con tu cuenta de LAN/TAM Menú");
+            $this->layout = 'login';
+            if($this->Session->read('Auth.User')){
+                return $this->redirect(array('controller'=>'pages','action' => 'index'));
+            }else{
+            if ($this->request->is('post')) {
+                // Important: Use login() without arguments! See warning below.
+                $ipClient=$this->get_client_ip();
+                $this->log('el ip es: '.$this->get_client_ip());
+                if (ip2long($ipClient) >= ip2long("0.0.0.0") && ip2long("255.255.255.255") >= ip2long($ipClient)) {
+                    if ($this->Auth->login()) {
+                        return $this->redirect($this->Auth->redirectUrl());
+                        // Prior to 2.3 use
+                        // `return $this->redirect($this->Auth->redirect());`
+                    }
+                }
+                $this->Session->setFlash('<div class="alert alert-danger"> <span class="vd_alert-icon"></span><strong>Error! </strong>El Usuario o la Contraseña son erroneos </div>');
+            }
+        }
+    }
+    function get_client_ip() {
+    $ipaddress = '';
+    if (getenv('HTTP_CLIENT_IP'))
+        $ipaddress = getenv('HTTP_CLIENT_IP');
+    else if(getenv('HTTP_X_FORWARDED_FOR'))
+        $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+    else if(getenv('HTTP_X_FORWARDED'))
+        $ipaddress = getenv('HTTP_X_FORWARDED');
+    else if(getenv('HTTP_FORWARDED_FOR'))
+        $ipaddress = getenv('HTTP_FORWARDED_FOR');
+    else if(getenv('HTTP_FORWARDED'))
+       $ipaddress = getenv('HTTP_FORWARDED');
+    else if(getenv('REMOTE_ADDR'))
+        $ipaddress = getenv('REMOTE_ADDR');
+    else
+        $ipaddress = 'UNKNOWN';
+    return $ipaddress;
+}
+    
 }

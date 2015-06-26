@@ -52,107 +52,14 @@
   </head>
   <body class="fixed-header  dashboard ">
     <!-- BEGIN SIDEBPANEL-->
-    <nav class="page-sidebar" data-pages="sidebar">
-      <!-- BEGIN SIDEBAR MENU TOP TRAY CONTENT-->
-      
-      <!-- END SIDEBAR MENU TOP TRAY CONTENT-->
-      <!-- BEGIN SIDEBAR MENU HEADER-->
-      <div class="sidebar-header">
-        <img src="<?php echo Router::url('/', true).'/app/webroot/assets/img/logo_white.png' ?>" alt="logo" class="brand" data-src="<?php echo Router::url('/', true).'/app/webroot/assets/img/logo_white.png' ?>" data-src-retina="<?php echo Router::url('/', true).'/app/webroot/assets/img/logo_white.png' ?>" width="120" height="30">
-        <div class="sidebar-header-controls">
-          <button type="button" class="btn btn-link visible-lg-inline" data-toggle-pin="sidebar"><i class="fa fs-12"></i>
-          </button>
-        </div>
-      </div>
-      <!-- END SIDEBAR MENU HEADER-->
-      <!-- START SIDEBAR MENU -->
-      <div class="sidebar-menu">
-        <!-- BEGIN SIDEBAR MENU ITEMS-->
-        <ul class="menu-items">
-          <li class="m-t-30 <?php if($screenName=='home'){echo 'open';} ?>">
-            <a href="<?php echo $this->Html->url(array('controller' => 'pages', 'action' => 'home')) ?>">
-              <span class="title">Dashboard</span>
-            </a>
-            <span class="icon-thumbnail <?php if($screenName=='home'){echo 'bg-success';} ?>"><i class="pg-home"></i></span>
-          </li>
-            <li class="<?php if($screenName=='userBlack'){echo 'open';} ?>">
-              <a href="<?php echo $this->Html->url(array('controller' => 'usersBlack', 'action' => 'index')) ?>"><span class="title">Usuarios Black</span></a>
-              <span class="icon-thumbnail <?php if($screenName=='userBlack'){echo 'bg-success';} ?>"><i class="fs-14 fa fa-user"></i></span>
-            </li>
-          <?php if($userRole=="Admin"){?>
-            <li class="<?php if($screenName=='user'){echo 'open';} ?>">
-              <a href="<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'index')) ?>"><span class="title">Usuarios</span></a>
-              <span class="icon-thumbnail <?php if($screenName=='user'){echo 'bg-success';} ?>"><i class="fs-14 fa fa-users"></i></span>
-            </li>
-            <?php } ?>
-          
-        </ul>
-        <div class="clearfix"></div>
-      </div>
-      <!-- END SIDEBAR MENU -->
-    </nav>
+    
     <!-- END SIDEBAR -->
     <!-- END SIDEBPANEL-->
     <!-- START PAGE-CONTAINER -->
-    <div class="page-container">
+    <div  style="background: lightgray; min-height: 100%;">
+    <div class="page-container" style="background: lightgray;">
       <!-- START HEADER -->
-      <div class="header ">
-        <!-- START MOBILE CONTROLS -->
-        <!-- LEFT SIDE -->
-        <div class="pull-left full-height visible-sm visible-xs">
-          <!-- START ACTION BAR -->
-          <div class="sm-action-bar">
-            <a href="#" class="btn-link toggle-sidebar" data-toggle="sidebar">
-              <span class="icon-set menu-hambuger"></span>
-            </a>
-          </div>
-          <!-- END ACTION BAR -->
-        </div>
-        <!-- RIGHT SIDE -->
-        <div class="pull-right full-height visible-sm visible-xs">
-          <!-- START ACTION BAR -->
-          <div class="sm-action-bar">
-            <a href="#" class="btn-link" data-toggle="quickview" data-toggle-element="#quickview">
-              <span class="icon-set menu-hambuger-plus"></span>
-            </a>
-          </div>
-          <!-- END ACTION BAR -->
-        </div>
-        <!-- END MOBILE CONTROLS -->
-        <div class=" pull-left sm-table">
-          <div class="header-inner">
-            <div class="brand inline">
-              <img src="<?php echo Router::url('/', true).'/app/webroot/img/logoLAN.png' ?>" alt="logo" data-src="<?php echo Router::url('/', true).'/app/webroot/img/logoLAN.png' ?>" data-src-retina="<?php echo Router::url('/', true).'/app/webroot/img/logoLAN.png' ?>" width="120" height="30">
-            </div>
-            </div>
-        </div>
-        <div class=" pull-right">
-          <!-- START User Info-->
-          <div class="visible-lg visible-md m-t-10">
-            <div class="pull-left p-r-10 p-t-10 fs-16 font-heading">
-              <span class="semi-bold"><?php echo $username ?></span>
-            </div>
-            <div class="dropdown pull-right">
-              <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="thumbnail-wrapper d32 circular inline m-t-5">
-                <img src="<?php if(isset($imgPath)){echo $imgPath;}else{echo Router::url('/', true).'/app/webroot/assets/img/user.png';} ?>" alt="" data-src="<?php if(isset($imgPath)){echo $imgPath;}else{echo Router::url('/', true).'/app/webroot/assets/img/user.png';} ?>" data-src-retina="<?php if(isset($imgPath)){echo $imgPath;}else{echo Router::url('/', true).'/app/webroot/assets/img/user.png';} ?>" width="32" height="32">
-            </span>
-              </button>
-              <ul class="dropdown-menu profile-dropdown" role="menu">
-                <li><a href="<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'view',$idUser)) ?>"><i class="fs-14 fa fa-gear"></i> Mi Perfil</a>
-                </li>
-                <li class="bg-master-lighter">
-                  <a href="<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'logout')) ?>" class="clearfix">
-                    <span class="pull-left">Salir</span>
-                    <span class="pull-right"><i class="pg-power"></i></span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- END User Info-->
-        </div>
-      </div>
+      
       <!-- END HEADER -->
       <!-- START PAGE CONTENT WRAPPER -->
       <div class="page-content-wrapper">
@@ -162,9 +69,58 @@
           <div class="container-fluid padding-25 sm-padding-10" style="padding-top:0px;">
             <!-- START ROW -->
               <div id="content">
-                  <br><br><br>
-                <?php echo $this->Session->flash(); ?>
-                <?php echo $this->fetch('content'); ?>
+                  
+                  <div class="col-sm-2"></div>
+                    <div class="col-sm-8" style="background: white; border: 1px solid rgba(230, 230, 230, 0.7); padding: 0px;">
+                        <div style="background: #21252d; height: 60px;">
+                            <div>
+                                <div style="padding-top: 15px; padding-left: 30px;">
+                                <img src="<?php echo Router::url('/', true).'/app/webroot/assets/img/logo_white.png' ?>" alt="logo" data-src="<?php echo Router::url('/', true).'/app/webroot/assets/img/logo_white.png' ?>" data-src-retina="<?php echo Router::url('/', true).'/app/webroot/assets/img/logo_white.png' ?>" width="120" height="30">
+                              </div>
+                            </div>
+                        </div>
+                        <?php echo $this->Session->flash(); ?>
+                           <br>
+                        <div style="padding-left: 35px;padding-right: 35px;">
+                                <div class="vd_panel-header">
+                                    <h1>Familiares</h1>
+                                </div>
+                            <table class="table table-hover demo-table-search" id="tableWithSearch">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: center;">Nombre</th>
+                                        <th style="text-align: center;">Correo</th>
+                                        <th style="text-align: center;">Tipo de Familiar</th>
+                                        <th style="text-align: center;">Observación</th>
+                                        <th style="text-align: center;">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach($relatives as $relative){ ?>
+                                    <tr>
+                                        <td style="text-align: center;"><?php echo $relative['Relative']['name'] ?></td>
+                                        <td style="text-align: center;"><?php echo $relative['Relative']['email'] ?></td>
+                                        <td style="text-align: center;"><?php echo $relative['Relative']['relativeType'] ?></td>
+                                        <td style="text-align: center;"><?php echo $relative['Relative']['observation'] ?></td>
+                                        <td class="userBlack-action" style="width:15%;">
+                                            <div style="width: 140px;">  
+                                            <a style="margin-left: 16px; padding-left: 16px;" ></a>
+                                              <a data-original-title="Editar" data-toggle="tooltip" data-placement="top" class="btn userBlack-icon vd_bd-yellow vd_yellow" href="<?php echo $this->Html->url(array('controller' => 'relatives', 'action' => 'editFromUser',$relative['Relative']['idRelative'],$idBlack)) ?>"> <i class="fa fa-pencil"></i> </a>
+                                              <form action="<?php echo $this->Html->url(array('controller' => 'relatives', 'action' => 'deleteFromUser',$relative['Relative']['idRelative'],$idBlack)) ?>" name="post_deleteRow<?php echo $relative['Relative']['idRelative'] ?>" id="post_deleteRow<?php echo $relative['Relative']['idRelative'] ?>" style="display:none;" method="post">
+                                                    <input type="hidden" name="_method" value="POST">
+                                                </form>
+                                                <a data-original-title="Borrar"  data-toggle="tooltip" data-placement="top" href="#" onclick="if (confirm(&quot;¿Estás seguro que deseas borrar el familiar: <?php echo $relative['Relative']['name'] ?> ?&quot;)) { document.post_deleteRow<?php echo $relative['Relative']['idRelative'] ?>.submit(); } event.returnValue = false; return false;"  class="btn userBlack-icon vd_bd-red vd_red" href=""><i class="glyphicon glyphicon-trash"></i></a>
+                                            </div>
+                                            </td>
+                                    </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <a href="<?php echo $this->Html->url(array('controller' => 'relatives', 'action' => 'addFromUser', $idBlack)) ?>" class="btn btn-info start" style="margin: 10px;margin-left: 70px;"> <i class="glyphicon glyphicon-plus"></i> <span> Agregar Familiar</span> </a>
+                        <a href="<?php echo $this->Html->url(array('controller' => 'UsersBlack', 'action' => 'finishEng')) ?>" class="btn btn-info start"> <i class="glyphicon glyphicon-upload"></i> <span> Finalizar</span> </a>
+                    </div>
+                    <div class="col-sm-2"></div>
               </div>
             <div class="row" hidden="true">
               <div class="col-md-4 m-b-10">
@@ -181,20 +137,8 @@
         
         <!-- END COPYRIGHT -->
       </div>
-        <div class="container-fluid container-fixed-lg footer">
-            <div class="copyright sm-text-center">
-              <p class="small no-margin pull-left sm-pull-reset">
-                <span class="hint-text">Copyright © 2015 </span>
-                <span class="font-montserrat">SocialBrand</span>.
-                <span class="hint-text">Todos los derechos Reservados. </span>
-              </p>
-              <p class="small no-margin pull-right sm-pull-reset">
-                <span class="hint-text"> Visitanos en: </span><a href="http://www.socialbrand.cl">socialbrand.cl </a>
-              </p>
-              <div class="clearfix"></div>
-            </div>
-          </div>
       <!-- END PAGE CONTENT WRAPPER -->
+    </div>
     </div>
     
     <script>
