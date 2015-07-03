@@ -121,7 +121,7 @@ public $uses = array('UserBlack','Relative');
  *
  * @return void
  */
-        public function addBlack($id = null) {
+        public function addBlackSpa($id = null) {
             $this->layout=null;
 		if (!$this->UserBlack->exists($id)) {
 			$this->Session->setFlash('<div class="alert alert-danger"> <span class="vd_alert-icon"><i class="fa fa-exclamation-circle vd_red"></i></span><strong>Error! </strong>El Usuario es Inválido </div>');
@@ -143,7 +143,7 @@ public $uses = array('UserBlack','Relative');
             
 			if ($this->UserBlack->save($this->request->data)) {
 				$this->Session->setFlash('<div class="alert alert-success"> <span class="vd_alert-icon"><i class="fa fa-check-circle vd_green"></i></span><strong> Exito! </strong>El Usuario se a editado con éxito. </div>');
-				return $this->redirect(array('controller'=>'UsersBlack','action' => 'relativeBlack',$id));
+				return $this->redirect(array('controller'=>'UsersBlack','action' => 'relativeBlackSpa',$id));
 			} else {
                                 $this->request->data['UserBlack']['businessCabinPref']=$this->decryptAES128($this->request->data['UserBlack']['businessCabinPref'], "LanTaMeNCrYpTKri");
                                 $this->request->data['UserBlack']['celPhone']=$this->decryptAES128($this->request->data['UserBlack']['celPhone'], "LanTaMeNCrYpTKri");
@@ -181,11 +181,167 @@ public $uses = array('UserBlack','Relative');
 		}
             
         }
+        
+        public function addBlackEng($id = null) {
+            $this->layout=null;
+		if (!$this->UserBlack->exists($id)) {
+			$this->Session->setFlash('<div class="alert alert-danger"> <span class="vd_alert-icon"><i class="fa fa-exclamation-circle vd_red"></i></span><strong>Error! </strong> Invalid User. </div>');
+		}
+		if ($this->request->is(array('post', 'put'))) {
+                    $this->request->data['UserBlack']['idUserBlack']=$id;
+                    
+                    $this->request->data['UserBlack']['businessCabinPref']=$this->encryptAES128($this->request->data['UserBlack']['businessCabinPref'], "LanTaMeNCrYpTKri");
+                    $this->request->data['UserBlack']['celPhone']=$this->encryptAES128($this->request->data['UserBlack']['celPhone'], "LanTaMeNCrYpTKri");
+                    $this->request->data['UserBlack']['economyCabinPref']=$this->encryptAES128($this->request->data['UserBlack']['economyCabinPref'], "LanTaMeNCrYpTKri");
+                    $this->request->data['UserBlack']['email']=$this->encryptAES128($this->request->data['UserBlack']['email'], "LanTaMeNCrYpTKri");
+                    $this->request->data['UserBlack']['fathersLastName']=$this->encryptAES128($this->request->data['UserBlack']['fathersLastName'], "LanTaMeNCrYpTKri");
+                    $this->request->data['UserBlack']['homePhone']=$this->encryptAES128($this->request->data['UserBlack']['homePhone'], "LanTaMeNCrYpTKri");
+                    $this->request->data['UserBlack']['identifier']=$this->encryptAES128($this->request->data['UserBlack']['identifier'], "LanTaMeNCrYpTKri");
+                    $this->request->data['UserBlack']['mothersLastName']=$this->encryptAES128($this->request->data['UserBlack']['mothersLastName'], "LanTaMeNCrYpTKri");
+                    $this->request->data['UserBlack']['name']=$this->encryptAES128($this->request->data['UserBlack']['name'], "LanTaMeNCrYpTKri");
+                    $this->request->data['UserBlack']['nationality']=$this->encryptAES128($this->request->data['UserBlack']['nationality'], "LanTaMeNCrYpTKri");
+                    $this->request->data['UserBlack']['officePhone']=$this->encryptAES128($this->request->data['UserBlack']['officePhone'], "LanTaMeNCrYpTKri");
+            
+			if ($this->UserBlack->save($this->request->data)) {
+				$this->Session->setFlash('<div class="alert alert-success"> <span class="vd_alert-icon"><i class="fa fa-check-circle vd_green"></i></span><strong> Exito! </strong>The User was successfully edited. </div>');
+				return $this->redirect(array('controller'=>'UsersBlack','action' => 'relativeBlackEng',$id));
+			} else {
+                                $this->request->data['UserBlack']['businessCabinPref']=$this->decryptAES128($this->request->data['UserBlack']['businessCabinPref'], "LanTaMeNCrYpTKri");
+                                $this->request->data['UserBlack']['celPhone']=$this->decryptAES128($this->request->data['UserBlack']['celPhone'], "LanTaMeNCrYpTKri");
+                                $this->request->data['UserBlack']['economyCabinPref']=$this->decryptAES128($this->request->data['UserBlack']['economyCabinPref'], "LanTaMeNCrYpTKri");
+                                $this->request->data['UserBlack']['email']=$this->decryptAES128($this->request->data['UserBlack']['email'], "LanTaMeNCrYpTKri");
+                                $this->request->data['UserBlack']['fathersLastName']=$this->decryptAES128($this->request->data['UserBlack']['fathersLastName'], "LanTaMeNCrYpTKri");
+                                $this->request->data['UserBlack']['homePhone']=$this->decryptAES128($this->request->data['UserBlack']['homePhone'], "LanTaMeNCrYpTKri");
+                                $this->request->data['UserBlack']['identifier']=$this->decryptAES128($this->request->data['UserBlack']['identifier'], "LanTaMeNCrYpTKri");
+                                $this->request->data['UserBlack']['mothersLastName']=$this->decryptAES128($this->request->data['UserBlack']['mothersLastName'], "LanTaMeNCrYpTKri");
+                                $this->request->data['UserBlack']['name']=$this->decryptAES128($this->request->data['UserBlack']['name'], "LanTaMeNCrYpTKri");
+                                $this->request->data['UserBlack']['nationality']=$this->decryptAES128($this->request->data['UserBlack']['nationality'], "LanTaMeNCrYpTKri");
+                                $this->request->data['UserBlack']['officePhone']=$this->decryptAES128($this->request->data['UserBlack']['officePhone'], "LanTaMeNCrYpTKri");
+
+				$this->Session->setFlash('<div class="alert alert-danger"> <span class="vd_alert-icon"><i class="fa fa-exclamation-circle vd_red"></i></span><strong>Error! </strong>The user could not be edited, try again. </div>');
+			}
+                        $this->set('idBlack',$id);
+                        $this->set('blackName',$this->request->data['UserBlack']['name']);
+		} else {
+			$options = array('conditions' => array('UserBlack.' . $this->UserBlack->primaryKey => $id));
+			
+                        $this->request->data = $this->UserBlack->find('first', $options);
+                        $this->request->data['UserBlack']['businessCabinPref']=$this->decryptAES128($this->request->data['UserBlack']['businessCabinPref'], "LanTaMeNCrYpTKri");
+                        $this->request->data['UserBlack']['celPhone']=$this->decryptAES128($this->request->data['UserBlack']['celPhone'], "LanTaMeNCrYpTKri");
+                        $this->request->data['UserBlack']['economyCabinPref']=$this->decryptAES128($this->request->data['UserBlack']['economyCabinPref'], "LanTaMeNCrYpTKri");
+                        $this->request->data['UserBlack']['email']=$this->decryptAES128($this->request->data['UserBlack']['email'], "LanTaMeNCrYpTKri");
+                        $this->request->data['UserBlack']['fathersLastName']=$this->decryptAES128($this->request->data['UserBlack']['fathersLastName'], "LanTaMeNCrYpTKri");
+                        $this->request->data['UserBlack']['homePhone']=$this->decryptAES128($this->request->data['UserBlack']['homePhone'], "LanTaMeNCrYpTKri");
+                        $this->request->data['UserBlack']['identifier']=$this->decryptAES128($this->request->data['UserBlack']['identifier'], "LanTaMeNCrYpTKri");
+                        $this->request->data['UserBlack']['mothersLastName']=$this->decryptAES128($this->request->data['UserBlack']['mothersLastName'], "LanTaMeNCrYpTKri");
+                        $this->request->data['UserBlack']['name']=$this->decryptAES128($this->request->data['UserBlack']['name'], "LanTaMeNCrYpTKri");
+                        $this->request->data['UserBlack']['nationality']=$this->decryptAES128($this->request->data['UserBlack']['nationality'], "LanTaMeNCrYpTKri");
+                        $this->request->data['UserBlack']['officePhone']=$this->decryptAES128($this->request->data['UserBlack']['officePhone'], "LanTaMeNCrYpTKri");
+                        $this->set('idBlack',$id);
+                        $this->set('blackName',$this->request->data['UserBlack']['name']);
+		}
+            
+        }
+        
+        public function addBlackPort($id = null) {
+            $this->layout=null;
+		if (!$this->UserBlack->exists($id)) {
+			$this->Session->setFlash('<div class="alert alert-danger"> <span class="vd_alert-icon"><i class="fa fa-exclamation-circle vd_red"></i></span><strong>Error! </strong>Os usuários são inválido. </div>');
+		}
+		if ($this->request->is(array('post', 'put'))) {
+                    $this->request->data['UserBlack']['idUserBlack']=$id;
+                    
+                    $this->request->data['UserBlack']['businessCabinPref']=$this->encryptAES128($this->request->data['UserBlack']['businessCabinPref'], "LanTaMeNCrYpTKri");
+                    $this->request->data['UserBlack']['celPhone']=$this->encryptAES128($this->request->data['UserBlack']['celPhone'], "LanTaMeNCrYpTKri");
+                    $this->request->data['UserBlack']['economyCabinPref']=$this->encryptAES128($this->request->data['UserBlack']['economyCabinPref'], "LanTaMeNCrYpTKri");
+                    $this->request->data['UserBlack']['email']=$this->encryptAES128($this->request->data['UserBlack']['email'], "LanTaMeNCrYpTKri");
+                    $this->request->data['UserBlack']['fathersLastName']=$this->encryptAES128($this->request->data['UserBlack']['fathersLastName'], "LanTaMeNCrYpTKri");
+                    $this->request->data['UserBlack']['homePhone']=$this->encryptAES128($this->request->data['UserBlack']['homePhone'], "LanTaMeNCrYpTKri");
+                    $this->request->data['UserBlack']['identifier']=$this->encryptAES128($this->request->data['UserBlack']['identifier'], "LanTaMeNCrYpTKri");
+                    $this->request->data['UserBlack']['mothersLastName']=$this->encryptAES128($this->request->data['UserBlack']['mothersLastName'], "LanTaMeNCrYpTKri");
+                    $this->request->data['UserBlack']['name']=$this->encryptAES128($this->request->data['UserBlack']['name'], "LanTaMeNCrYpTKri");
+                    $this->request->data['UserBlack']['nationality']=$this->encryptAES128($this->request->data['UserBlack']['nationality'], "LanTaMeNCrYpTKri");
+                    $this->request->data['UserBlack']['officePhone']=$this->encryptAES128($this->request->data['UserBlack']['officePhone'], "LanTaMeNCrYpTKri");
+            
+			if ($this->UserBlack->save($this->request->data)) {
+				$this->Session->setFlash('<div class="alert alert-success"> <span class="vd_alert-icon"><i class="fa fa-check-circle vd_green"></i></span><strong> Exito! </strong>O Usuário para editado com sucesso. </div>');
+				return $this->redirect(array('controller'=>'UsersBlack','action' => 'relativeBlackPort',$id));
+			} else {
+                                $this->request->data['UserBlack']['businessCabinPref']=$this->decryptAES128($this->request->data['UserBlack']['businessCabinPref'], "LanTaMeNCrYpTKri");
+                                $this->request->data['UserBlack']['celPhone']=$this->decryptAES128($this->request->data['UserBlack']['celPhone'], "LanTaMeNCrYpTKri");
+                                $this->request->data['UserBlack']['economyCabinPref']=$this->decryptAES128($this->request->data['UserBlack']['economyCabinPref'], "LanTaMeNCrYpTKri");
+                                $this->request->data['UserBlack']['email']=$this->decryptAES128($this->request->data['UserBlack']['email'], "LanTaMeNCrYpTKri");
+                                $this->request->data['UserBlack']['fathersLastName']=$this->decryptAES128($this->request->data['UserBlack']['fathersLastName'], "LanTaMeNCrYpTKri");
+                                $this->request->data['UserBlack']['homePhone']=$this->decryptAES128($this->request->data['UserBlack']['homePhone'], "LanTaMeNCrYpTKri");
+                                $this->request->data['UserBlack']['identifier']=$this->decryptAES128($this->request->data['UserBlack']['identifier'], "LanTaMeNCrYpTKri");
+                                $this->request->data['UserBlack']['mothersLastName']=$this->decryptAES128($this->request->data['UserBlack']['mothersLastName'], "LanTaMeNCrYpTKri");
+                                $this->request->data['UserBlack']['name']=$this->decryptAES128($this->request->data['UserBlack']['name'], "LanTaMeNCrYpTKri");
+                                $this->request->data['UserBlack']['nationality']=$this->decryptAES128($this->request->data['UserBlack']['nationality'], "LanTaMeNCrYpTKri");
+                                $this->request->data['UserBlack']['officePhone']=$this->decryptAES128($this->request->data['UserBlack']['officePhone'], "LanTaMeNCrYpTKri");
+
+				$this->Session->setFlash('<div class="alert alert-danger"> <span class="vd_alert-icon"><i class="fa fa-exclamation-circle vd_red"></i></span><strong>Error! </strong>O usuário não pode ser editado, tente novamente. </div>');
+			}
+                        $this->set('idBlack',$id);
+                        $this->set('blackName',$this->request->data['UserBlack']['name']);
+		} else {
+			$options = array('conditions' => array('UserBlack.' . $this->UserBlack->primaryKey => $id));
+			
+                        $this->request->data = $this->UserBlack->find('first', $options);
+                        $this->request->data['UserBlack']['businessCabinPref']=$this->decryptAES128($this->request->data['UserBlack']['businessCabinPref'], "LanTaMeNCrYpTKri");
+                        $this->request->data['UserBlack']['celPhone']=$this->decryptAES128($this->request->data['UserBlack']['celPhone'], "LanTaMeNCrYpTKri");
+                        $this->request->data['UserBlack']['economyCabinPref']=$this->decryptAES128($this->request->data['UserBlack']['economyCabinPref'], "LanTaMeNCrYpTKri");
+                        $this->request->data['UserBlack']['email']=$this->decryptAES128($this->request->data['UserBlack']['email'], "LanTaMeNCrYpTKri");
+                        $this->request->data['UserBlack']['fathersLastName']=$this->decryptAES128($this->request->data['UserBlack']['fathersLastName'], "LanTaMeNCrYpTKri");
+                        $this->request->data['UserBlack']['homePhone']=$this->decryptAES128($this->request->data['UserBlack']['homePhone'], "LanTaMeNCrYpTKri");
+                        $this->request->data['UserBlack']['identifier']=$this->decryptAES128($this->request->data['UserBlack']['identifier'], "LanTaMeNCrYpTKri");
+                        $this->request->data['UserBlack']['mothersLastName']=$this->decryptAES128($this->request->data['UserBlack']['mothersLastName'], "LanTaMeNCrYpTKri");
+                        $this->request->data['UserBlack']['name']=$this->decryptAES128($this->request->data['UserBlack']['name'], "LanTaMeNCrYpTKri");
+                        $this->request->data['UserBlack']['nationality']=$this->decryptAES128($this->request->data['UserBlack']['nationality'], "LanTaMeNCrYpTKri");
+                        $this->request->data['UserBlack']['officePhone']=$this->decryptAES128($this->request->data['UserBlack']['officePhone'], "LanTaMeNCrYpTKri");
+                        $this->set('idBlack',$id);
+                        $this->set('blackName',$this->request->data['UserBlack']['name']);
+		}
+            
+        }
         public function finishEng($id = null) {
             $this->layout=null;
         }
+        public function finishSpa($id = null) {
+            $this->layout=null;
+        }
+        public function finishPort($id = null) {
+            $this->layout=null;
+        }
         
-        public function relativeBlack($id = null) {
+        public function relativeBlackSpa($id = null) {
+            $this->layout=null;
+            $relatives=$this->Relative->find('all',array('conditions'=>array('UserBlack_idUserBlack'=>$id)));
+            for($k=0;$k<count($relatives);$k++){
+                $relatives[$k]['Relative']['name']=$this->decryptAES128($relatives[$k]['Relative']['name'], "LanTaMeNCrYpTKri");
+                $relatives[$k]['Relative']['email']=$this->decryptAES128($relatives[$k]['Relative']['email'], "LanTaMeNCrYpTKri");
+                $relatives[$k]['Relative']['relativeType']=$this->decryptAES128($relatives[$k]['Relative']['relativeType'], "LanTaMeNCrYpTKri");
+                $relatives[$k]['Relative']['observation']=$this->decryptAES128($relatives[$k]['Relative']['observation'], "LanTaMeNCrYpTKri");
+            }
+            $userBlack=$this->UserBlack->find('first',array('conditions'=>array('idUserBlack'=>$id)));
+            $this->set('relatives',$relatives);
+            $this->set('idBlack',$id);
+            $this->set('nameUser',$this->decryptAES128($userBlack['UserBlack']['name'], "LanTaMeNCrYpTKri"));
+        }
+        public function relativeBlackEng($id = null) {
+            $this->layout=null;
+            $relatives=$this->Relative->find('all',array('conditions'=>array('UserBlack_idUserBlack'=>$id)));
+            for($k=0;$k<count($relatives);$k++){
+                $relatives[$k]['Relative']['name']=$this->decryptAES128($relatives[$k]['Relative']['name'], "LanTaMeNCrYpTKri");
+                $relatives[$k]['Relative']['email']=$this->decryptAES128($relatives[$k]['Relative']['email'], "LanTaMeNCrYpTKri");
+                $relatives[$k]['Relative']['relativeType']=$this->decryptAES128($relatives[$k]['Relative']['relativeType'], "LanTaMeNCrYpTKri");
+                $relatives[$k]['Relative']['observation']=$this->decryptAES128($relatives[$k]['Relative']['observation'], "LanTaMeNCrYpTKri");
+            }
+            $userBlack=$this->UserBlack->find('first',array('conditions'=>array('idUserBlack'=>$id)));
+            $this->set('relatives',$relatives);
+            $this->set('idBlack',$id);
+            $this->set('nameUser',$this->decryptAES128($userBlack['UserBlack']['name'], "LanTaMeNCrYpTKri"));
+        }
+        public function relativeBlackPort($id = null) {
             $this->layout=null;
             $relatives=$this->Relative->find('all',array('conditions'=>array('UserBlack_idUserBlack'=>$id)));
             for($k=0;$k<count($relatives);$k++){

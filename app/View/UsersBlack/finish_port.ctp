@@ -83,42 +83,10 @@
                            <br>
                         <div style="padding-left: 35px;padding-right: 35px;">
                                 <div class="vd_panel-header">
-                                    <h1>Familiares</h1>
+                                    <h1>Obrigado</h1>
                                 </div>
-                            <table class="table table-hover demo-table-search" id="tableWithSearch">
-                                <thead>
-                                    <tr>
-                                        <th style="text-align: center;">Nombre</th>
-                                        <th style="text-align: center;">Correo</th>
-                                        <th style="text-align: center;">Tipo de Familiar</th>
-                                        <th style="text-align: center;">Observación</th>
-                                        <th style="text-align: center;">Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach($relatives as $relative){ ?>
-                                    <tr>
-                                        <td style="text-align: center;"><?php echo $relative['Relative']['name'] ?></td>
-                                        <td style="text-align: center;"><?php echo $relative['Relative']['email'] ?></td>
-                                        <td style="text-align: center;"><?php echo $relative['Relative']['relativeType'] ?></td>
-                                        <td style="text-align: center;"><?php echo $relative['Relative']['observation'] ?></td>
-                                        <td class="userBlack-action" style="width:15%;">
-                                            <div style="width: 140px;">  
-                                            <a style="margin-left: 16px; padding-left: 16px;" ></a>
-                                              <a data-original-title="Editar" data-toggle="tooltip" data-placement="top" class="btn userBlack-icon vd_bd-yellow vd_yellow" href="<?php echo $this->Html->url(array('controller' => 'relatives', 'action' => 'editFromUser',$relative['Relative']['idRelative'],$idBlack)) ?>"> <i class="fa fa-pencil"></i> </a>
-                                              <form action="<?php echo $this->Html->url(array('controller' => 'relatives', 'action' => 'deleteFromUser',$relative['Relative']['idRelative'],$idBlack)) ?>" name="post_deleteRow<?php echo $relative['Relative']['idRelative'] ?>" id="post_deleteRow<?php echo $relative['Relative']['idRelative'] ?>" style="display:none;" method="post">
-                                                    <input type="hidden" name="_method" value="POST">
-                                                </form>
-                                                <a data-original-title="Borrar"  data-toggle="tooltip" data-placement="top" href="#" onclick="if (confirm(&quot;¿Estás seguro que deseas borrar el familiar: <?php echo $relative['Relative']['name'] ?> ?&quot;)) { document.post_deleteRow<?php echo $relative['Relative']['idRelative'] ?>.submit(); } event.returnValue = false; return false;"  class="btn userBlack-icon vd_bd-red vd_red" href=""><i class="glyphicon glyphicon-trash"></i></a>
-                                            </div>
-                                            </td>
-                                    </tr>
-                                    <?php } ?>
-                                </tbody>
-                            </table>
+                            
                         </div>
-                        <a href="<?php echo $this->Html->url(array('controller' => 'relatives', 'action' => 'addFromUser', $idBlack)) ?>" class="btn btn-info start" style="margin: 10px;margin-left: 70px;"> <i class="glyphicon glyphicon-plus"></i> <span> Agregar Familiar</span> </a>
-                        <a href="<?php echo $this->Html->url(array('controller' => 'UsersBlack', 'action' => 'finishEng')) ?>" class="btn btn-info start"> <i class="glyphicon glyphicon-upload"></i> <span> Finalizar</span> </a>
                     </div>
                     <div class="col-sm-2"></div>
               </div>

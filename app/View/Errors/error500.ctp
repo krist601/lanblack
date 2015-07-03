@@ -1,26 +1,36 @@
-<?php
-/**
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.View.Errors
- * @since         CakePHP(tm) v 0.10.0.1076
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
- */
-?>
-<h2><?php echo $message; ?></h2>
-<p class="error">
-	<strong><?php echo __d('cake', 'Error'); ?>: </strong>
-	<?php echo __d('cake', 'An Internal Error Has Occurred.'); ?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<title>Objecto no localizado!</title>
+<link rev="made" href="mailto:you@example.com">
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Error 404</h1>
+<p>
+
+
+    El URL solicitado no ha sido localizado en este servidor.
+
+  
+
+    Si usted tecleó el URL manualmente, por favor revise su
+    ortografía y vuélvalo a intentar.
+
+  
+
 </p>
-<?php
-if (Configure::read('debug') > 0):
-	echo $this->element('exception_stack_trace');
-endif;
-?>
+<p>
+Si usted cree que esto es un error del servidor, por favor comuníqueselo al
+<a href="mailto:kristian.cortes@esocialbrand.cl">administrador
+del portal</a>.
+
+</p>
+
+
+
+</body></html>

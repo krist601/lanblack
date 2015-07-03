@@ -56,7 +56,7 @@
     <!-- END SIDEBAR -->
     <!-- END SIDEBPANEL-->
     <!-- START PAGE-CONTAINER -->
-    <div  style="background: lightgray; min-height: 100%">
+    <div  style="background: lightgray; min-height: 100%;">
     <div class="page-container" style="background: lightgray;">
       <!-- START HEADER -->
       
@@ -70,8 +70,8 @@
             <!-- START ROW -->
               <div id="content">
                   
-                  <div class="col-sm-3"></div>
-                    <div class="col-sm-6" style="background: white; border: 1px solid rgba(230, 230, 230, 0.7); padding: 0px;">
+                  <div class="col-sm-2"></div>
+                    <div class="col-sm-8" style="background: white; border: 1px solid rgba(230, 230, 230, 0.7); padding: 0px;">
                         <div style="background: #21252d; height: 60px;">
                             <div>
                                 <div style="padding-top: 15px; padding-left: 30px;">
@@ -79,57 +79,16 @@
                               </div>
                             </div>
                         </div>
-                        <div style="padding-left: 35px;padding-right: 35px;">
-                            <?php echo $this->Form->create('UserBlack'); ?>
+                        <?php echo $this->Session->flash(); ?>
                            <br>
-                           
+                        <div style="padding-left: 35px;padding-right: 35px;">
                                 <div class="vd_panel-header">
-                                    <h1>Datos Personales</h1>
+                                    <h1>Gracias</h1>
                                 </div>
-                           <div class="form-group form-group-default" aria-required="true">
-                                <?php echo $this->Form->input('identifier', array('label' => 'Rut/Cédula de Identidad', 'class' => 'form-control'));?>
-                           </div>
-                           <div class="form-group form-group-default" aria-required="true">
-                                <?php echo $this->Form->input('name', array('label' => 'Nombre', 'class' => 'form-control'));?>
-                           </div>
-                           <div class="form-group form-group-default" aria-required="true">
-                                <?php echo $this->Form->input('fathersLastName', array('label' => 'Apellido Paterno', 'class' => 'form-control'));?>
-                           </div>
-                           <div class="form-group form-group-default" aria-required="true">
-                                <?php echo $this->Form->input('mothersLastName', array('label' => 'Apellido Materno', 'class' => 'form-control'));?>
-                           </div>
-                           <div class="form-group form-group-default" aria-required="true">
-                                <?php echo $this->Form->input('nationality', array('label' => 'Nacionalidad', 'class' => 'form-control'));?>
-                           </div>
-                           <div class="form-group form-group-default" aria-required="true">
-                                <?php echo $this->Form->input('email', array('label' => 'Correo', 'class' => 'form-control'));?>
-                           </div>
-                           <div class="form-group form-group-default" aria-required="true">
-                                <?php echo $this->Form->input('celPhone', array('label' => 'Telf. Celular', 'class' => 'form-control'));?>
-                           </div>
-                           <div class="form-group form-group-default" aria-required="true">
-                                <?php echo $this->Form->input('officePhone', array('label' => 'Telf. Oficina', 'class' => 'form-control'));?>
-                           </div>
-                           <div class="form-group form-group-default" aria-required="true">
-                                <?php echo $this->Form->input('homePhone', array('label' => 'Telf. Particular', 'class' => 'form-control'));?>
-                           </div>
-                           <div class="form-group form-group-default" aria-required="true">
-                                <?php echo $this->Form->input('businessCabinPref', array('label' => 'Preferencia de Asiento (Economy)', 'class' => 'form-control',
-                                    'options' => array(''=>'Seleccione una opción...','Primera Fila' => 'Primera Fila', 'Salida de Emergencias' => 'Salida de Emergencias')
-                                ));?>
-                           </div>
-                           <div class="form-group form-group-default" aria-required="true">
-                                <?php echo $this->Form->input('economyCabinPref', array('label' => 'Preferencia de Asiento (Business)', 'class' => 'form-control',
-                                    'options' => array(''=>'Seleccione una opción...','Ventana' => 'Ventana', 'Pasillo' => 'Pasillo')
-                                ));?>
-                           </div>
-                            <?php
-                            echo $this->Form->input('Next', array("style"=>"margin:15px;","label" => false, 'div' => 'false', "class" => "btn btn-success start", "type" => "submit"));
-                            echo $this->Form->end();
-                            ?>
+                            
                         </div>
                     </div>
-                    <div class="col-sm-3"></div>
+                    <div class="col-sm-2"></div>
               </div>
             <div class="row" hidden="true">
               <div class="col-md-4 m-b-10">

@@ -40,6 +40,9 @@ class AppController extends Controller {
     ));
     function beforeFilter(){    
             $user = $this->Session->read('Auth.User');
+        if($this->name == 'CakeError') {
+            $this->layout = null;
+        }
             if ($user['username']){
                 $this->set('username', $user['username']);
             }

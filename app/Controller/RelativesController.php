@@ -14,6 +14,8 @@ class RelativesController extends AppController {
  *
  * @var array
  */
+     
+    
     public $uses=array('UserBlack','Relative');
         function beforeFilter(){    
             $user = $this->Session->read('Auth.User');
