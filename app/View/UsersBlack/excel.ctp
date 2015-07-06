@@ -33,7 +33,6 @@ $objPHPExcel->setActiveSheetIndex(0)->setCellValue('K'.'1', "Preferencia cabina 
 $objPHPExcel->setActiveSheetIndex(0)->setCellValue('L'.'1', "Preferencia cabina (Economy)");
 $objPHPExcel->setActiveSheetIndex(0)->setCellValue('M'.'1', "Familiares");
 foreach ($usersBlack as $userBlack){
-    if($userBlack['totalTweets']!=0){
         $objPHPExcel->setActiveSheetIndex(0)->setCellValue('A'.$i, $userBlack['UserBlack']['identifier']);
         $objPHPExcel->setActiveSheetIndex(0)->setCellValue('B'.$i, $userBlack['UserBlack']['name']);
         $objPHPExcel->setActiveSheetIndex(0)->setCellValue('C'.$i, $userBlack['UserBlack']['fathersLastName']);
@@ -47,7 +46,6 @@ foreach ($usersBlack as $userBlack){
         $objPHPExcel->setActiveSheetIndex(0)->setCellValue('K'.$i, $userBlack['UserBlack']['businessCabinPref']);
         $objPHPExcel->setActiveSheetIndex(0)->setCellValue('L'.$i, $userBlack['UserBlack']['economyCabinPref']);
         $objPHPExcel->setActiveSheetIndex(0)->setCellValue('M'.$i++, $userBlack['UserBlack']['relatives']);
-    }
 }
 $objPHPExcel->getActiveSheet()->setTitle('Usuarios Black');
 $objPHPExcel->setActiveSheetIndex(0);
