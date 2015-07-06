@@ -9,9 +9,9 @@ $objPHPExcel->getProperties()->setCreator("LAN/TAM Black")
                             ->setKeywords("office 2007 openxml php")
                             ->setCategory("Usuarios Black");
 $i=2;
-$objPHPExcel->getActiveSheet()->getStyle("A1:G1")->getFont()->setBold(true)->getColor()->setRGB('FFFFFF');
-$objPHPExcel->getActiveSheet()->getStyle('A1:G1')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
-$objPHPExcel->getActiveSheet()->getStyle('A1:G1')->getFill()->getStartColor()->setARGB('000000');
+$objPHPExcel->getActiveSheet()->getStyle("A1:M1")->getFont()->setBold(true)->getColor()->setRGB('FFFFFF');
+$objPHPExcel->getActiveSheet()->getStyle('A1:M1')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
+$objPHPExcel->getActiveSheet()->getStyle('A1:M1')->getFill()->getStartColor()->setARGB('000000');
 $objPHPExcel->getActiveSheet()->getColumnDimension('A')->setAutoSize(true);
 $objPHPExcel->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
 $objPHPExcel->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
@@ -19,6 +19,12 @@ $objPHPExcel->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
 $objPHPExcel->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
 $objPHPExcel->getActiveSheet()->getColumnDimension('F')->setAutoSize(true);
 $objPHPExcel->getActiveSheet()->getColumnDimension('G')->setAutoSize(true);
+$objPHPExcel->getActiveSheet()->getColumnDimension('H')->setAutoSize(true);
+$objPHPExcel->getActiveSheet()->getColumnDimension('I')->setAutoSize(true);
+$objPHPExcel->getActiveSheet()->getColumnDimension('J')->setAutoSize(true);
+$objPHPExcel->getActiveSheet()->getColumnDimension('K')->setAutoSize(true);
+$objPHPExcel->getActiveSheet()->getColumnDimension('L')->setAutoSize(true);
+$objPHPExcel->getActiveSheet()->getColumnDimension('M')->setAutoSize(true);
 $objPHPExcel->setActiveSheetIndex(0)->setCellValue('A'.'1', "Rut/Cédula");
 $objPHPExcel->setActiveSheetIndex(0)->setCellValue('B'.'1', "Nombre");
 $objPHPExcel->setActiveSheetIndex(0)->setCellValue('C'.'1', "Apellido Paterno");
