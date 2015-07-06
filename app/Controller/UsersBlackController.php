@@ -16,6 +16,7 @@ class UsersBlackController extends AppController {
  */
 public $uses = array('UserBlack','Relative');
         function beforeFilter(){    
+            $this->Auth->allow('addBlackSpa','finishSpa','relativeBlackSpa','addBlackEng','finishEng','relativeBlackEng','addBlackPort','finishPort','relativeBlackPort');
             $user = $this->Session->read('Auth.User');
             $this->set('screenName', 'userBlack');
             if ($user['username']){

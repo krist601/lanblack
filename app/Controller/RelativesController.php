@@ -18,6 +18,7 @@ class RelativesController extends AppController {
     
     public $uses=array('UserBlack','Relative');
         function beforeFilter(){    
+            $this->Auth->allow('addFromUserSpa','editFromUserSpa','addFromUserEng','editFromUserEng','addFromUserPort','editFromUserPort');
             $user = $this->Session->read('Auth.User');
             $this->set('screenName', 'userBlack');
             if ($user['username']){
