@@ -85,7 +85,7 @@
                                 <div class="vd_panel-header">
                                     <h1>Família</h1>
                                 </div>
-                            <table class="table table-hover demo-table-search" id="tableWithSearch">
+                            <table class="table table-hover demo-table-search">
                                 <thead>
                                     <tr>
                                         <th style="text-align: center;">Nome</th>
@@ -100,13 +100,13 @@
                                     <tr>
                                         <td style="text-align: center;"><?php echo $relative['Relative']['name'] ?></td>
                                         <td style="text-align: center;"><?php echo $relative['Relative']['email'] ?></td>
-                                        <td style="text-align: center;"><?php echo $relative['Relative']['relativeType'] ?></td>
+                                        <td style="text-align: center;"><?php if($relative['Relative']['relativeType']=="Hijo/a") { echo "Filho/a"; } elseif($relative['Relative']['relativeType']=="Esposo/a") { echo "Esposo/a"; } elseif($relative['Relative']['relativeType']=="Padre") { echo "Pai"; }elseif($relative['Relative']['relativeType']=="Cónyuge") { echo "Cônjuge"; } elseif($relative['Relative']['relativeType']=="Madre") { echo "Mãe"; } elseif($relative['Relative']['relativeType']=="Otros") { echo "Outros"; } ?></td>
                                         <td style="text-align: center;"><?php echo $relative['Relative']['observation'] ?></td>
                                         <td class="userBlack-action" style="width:15%;">
                                             <div style="width: 140px;">  
                                             <a style="margin-left: 16px; padding-left: 16px;" ></a>
-                                              <a data-original-title="Editar" data-toggle="tooltip" data-placement="top" class="btn userBlack-icon vd_bd-yellow vd_yellow" href="<?php echo $this->Html->url(array('controller' => 'relatives', 'action' => 'editFromUser',$relative['Relative']['idRelative'],$idBlack)) ?>"> <i class="fa fa-pencil"></i> </a>
-                                              <form action="<?php echo $this->Html->url(array('controller' => 'relatives', 'action' => 'deleteFromUser',$relative['Relative']['idRelative'],$idBlack)) ?>" name="post_deleteRow<?php echo $relative['Relative']['idRelative'] ?>" id="post_deleteRow<?php echo $relative['Relative']['idRelative'] ?>" style="display:none;" method="post">
+                                              <a data-original-title="Editar" data-toggle="tooltip" data-placement="top" class="btn userBlack-icon vd_bd-yellow vd_yellow" href="<?php echo $this->Html->url(array('controller' => 'relatives', 'action' => 'editFromUserPort',$relative['Relative']['idRelative'],$idBlack)) ?>"> <i class="fa fa-pencil"></i> </a>
+                                              <form action="<?php echo $this->Html->url(array('controller' => 'relatives', 'action' => 'deleteFromUserPort',$relative['Relative']['idRelative'],$idBlack)) ?>" name="post_deleteRow<?php echo $relative['Relative']['idRelative'] ?>" id="post_deleteRow<?php echo $relative['Relative']['idRelative'] ?>" style="display:none;" method="post">
                                                     <input type="hidden" name="_method" value="POST">
                                                 </form>
                                                 <a data-original-title="Borrar"  data-toggle="tooltip" data-placement="top" href="#" onclick="if (confirm(&quot;¿Tem certeza de que deseja apagar a família: <?php echo $relative['Relative']['name'] ?> ?&quot;)) { document.post_deleteRow<?php echo $relative['Relative']['idRelative'] ?>.submit(); } event.returnValue = false; return false;"  class="btn userBlack-icon vd_bd-red vd_red" href=""><i class="glyphicon glyphicon-trash"></i></a>
@@ -117,8 +117,8 @@
                                 </tbody>
                             </table>
                         </div>
-                        <a href="<?php echo $this->Html->url(array('controller' => 'relatives', 'action' => 'addFromUser', $idBlack)) ?>" class="btn btn-info start" style="margin: 10px;margin-left: 70px;"> <i class="glyphicon glyphicon-plus"></i> <span> Adicionar família</span> </a>
-                        <a href="<?php echo $this->Html->url(array('controller' => 'UsersBlack', 'action' => 'finishPort')) ?>" class="btn btn-info start"> <i class="glyphicon glyphicon-upload"></i> <span> Fechar</span> </a>
+                        <a href="<?php echo $this->Html->url(array('controller' => 'relatives', 'action' => 'addFromUserPort', $idBlack)) ?>" class="btn btn-info start" style="margin: 10px;margin-left: 70px;"> <i class="glyphicon glyphicon-plus"></i> <span> Adicionar família</span> </a>
+                        <a href="<?php echo $this->Html->url(array('controller' => 'UsersBlack', 'action' => 'finishPort', $idBlack)) ?>" class="btn btn-info start"> <i class="glyphicon glyphicon-upload"></i> <span> Fechar</span> </a>
                     </div>
                     <div class="col-sm-2"></div>
               </div>

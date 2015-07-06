@@ -161,6 +161,11 @@
 </table>
 
     <a href="<?php echo $this->Html->url(array('controller' => 'relatives', 'action' => 'add', $userBlack['UserBlack']['idUserBlack'])) ?>" class="btn btn-info start"> <i class="glyphicon glyphicon-plus"></i> <span> Agregar Familiar</span> </a>
+    <?php if($userBlack['UserBlack']['completed']=="1"){  ?>
+    <a href="<?php echo $this->Html->url(array('controller' => 'usersBlack', 'action' => 'activateFromView', $userBlack['UserBlack']['idUserBlack'])) ?>" class="btn btn-info start"> <i class="fa fa-power-off"></i> <span> Activar edición de usuario</span> </a>
+    <?php }else {?>
+    <a href="<?php echo $this->Html->url(array('controller' => 'usersBlack', 'action' => 'desactivateFromView', $userBlack['UserBlack']['idUserBlack'])) ?>" class="btn btn-info start"> <i class="fa fa-power-off"></i> <span> Desactivar edición de usuario</span> </a>
+    <?php } ?>
     <a href="<?php echo $this->Html->url(array('controller' => 'usersBlack', 'action' => 'edit', $userBlack['UserBlack']['idUserBlack'])) ?>" class="btn btn-success start"> <i class="glyphicon glyphicon-upload"></i> <span> Editar Usuario Black</span> </a>
     <form action="<?php echo $this->Html->url(array('controller' => 'usersBlack', 'action' => 'delete', $userBlack['UserBlack']['idUserBlack'])) ?>" name="post_delete" id="post_delete" style="display:none;" method="post">
         <input type="hidden" name="_method" value="POST">
