@@ -205,7 +205,7 @@ class UsersController extends AppController {
         $this->redirect($this->Auth->logout());
     }
         function login() {
-            $this->set("textVar","Ingresa con tu cuenta de LAN/TAM Menú");
+            $this->set("textVar","Ingresa con tu cuenta de LAN/TAM Black");
             $this->layout = 'login';
             if($this->Session->read('Auth.User')){
                 return $this->redirect(array('controller'=>'pages','action' => 'index'));

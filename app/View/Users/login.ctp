@@ -3,7 +3,7 @@
     <div class="form-group form-group-default">
         <label>Usuario</label>
         <div class="controls">
-            <input type="text" name="data[User][username]" id="data[User][username]" placeholder="Usuario de LAN/TAM Menú" class="form-control" required>
+            <input type="text" name="data[User][username]" id="data[User][username]" placeholder="Usuario de LAN/TAM Black" class="form-control" required>
         </div>
     </div>
     <!-- END Form Control-->
