@@ -33,7 +33,7 @@
   </head>
   <body class="fixed-header   ">
     <!-- START PAGE-CONTAINER -->
-    <div class="login-wrapper ">
+    <div class="login-wrapper " style="background-color:#000000">
       <!-- START Login Background Pic Wrapper-->
       <div class="bg-pic">
         <!-- START Background Pic-->
@@ -45,12 +45,12 @@
       </div>
       <!-- END Login Background Pic Wrapper-->
       <!-- START Login Right Container-->
-      <div class="login-container bg-white">
+      <div class="login-container bg-white" style="background-color:#000000">
         <div class="p-l-50 m-l-20 p-r-50 m-r-20 p-t-50 m-t-30 sm-p-l-15 sm-p-r-15 sm-p-t-40">
           <img src="<?php echo Router::url('/', true).'/app/webroot/assets/img/logo.png' ?>" alt="logo" data-src="<?php echo Router::url('/', true).'/app/webroot/assets/img/logo.png' ?>" data-src-retina="<?php echo Router::url('/', true).'/app/webroot/assets/img/logo.png' ?>" width="120" height="30">
           <p class="p-t-35"><?php echo $textVar ?></p>
           <!-- START Login Form -->
-            <div id="content">
+            <div id="content" style="background-color:#000000">
 
                 <?php echo $this->Session->flash(); ?>
 
