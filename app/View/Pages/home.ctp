@@ -34,6 +34,7 @@
                   </div>
             
             <div class="row">
+              
               <div class="col-md-6 col-xlg-5">
                 <div class="row">
                   <div class="col-md-12 m-b-10">
@@ -43,7 +44,7 @@
                         <div class="panel-body">
                             <div class="pull-bottom bottom-left bottom-right " style="padding-bottom: 20px;">
                             <br>
-                            <h2 class="text-white">Estadísticas y Gráficos.</h2>
+                            <h2 class="text-white">Usuarios Black Registrados <?php echo $usersTotal; ?>.</h2>
                             
                           </div>
                         </div>
@@ -51,96 +52,27 @@
                     </div>
                   </div>
                 </div>
-                
-              </div>
-              <div class="col-md-6 col-xlg-4">
+              
+            </div>
+<div class="row">
+              
+              <div class="col-md-6 col-xlg-5">
                 <div class="row">
-                  <div class="col-sm-6 m-b-10">
-                    <div class="ar-1-1" style="height: 208.125px;">
+                  <div class="col-md-12 m-b-10">
+                    <div class="ar-3-2 widget-40-wrapper"style="height: 426px;">
  
-                      <div class="widget-2 panel no-border bg-primary widget widget-loader-circle-lg no-margin">
-                        <div class="panel-heading">
-                          <div class="panel-controls">
-                            <ul>
-                              <li><a href="#" class="portlet-refresh" data-toggle="refresh"></a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
+                      <div class="widget-40 panel no-border bg-complete no-margin widget-loader-circle-lg">
                         <div class="panel-body">
-                          <div class="pull-bottom bottom-left bottom-right padding-25">
+                            <div class="pull-bottom bottom-left bottom-right " style="padding-bottom: 20px;">
                             <br>
-                            <h3 class="text-white" style="padding-left: 15px;">Usuarios Black: <?php echo $passengers; ?></h3>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-6 m-b-10">
-                    <div class="ar-1-1" style="height: 208.125px;">
-                      <div class="widget-3 panel no-border bg-primary widget widget-loader-circle-lg no-margin">
-                        <div class="panel-heading">
-                          <div class="panel-controls">
-                            <ul>
-                              <li><a href="#" class="portlet-refresh" data-toggle="refresh"></a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div class="panel-body">
-                          <div class="pull-bottom bottom-left bottom-right padding-25">
-                            <br>
-                            <h3 class="text-white" style="padding-left: 15px;">Menús del mes: <?php echo $menus; ?></h3>
+                            <h2 class="text-white">Usuarios Black sin contestar <?php echo $usersNoResponseTotal; ?>.</h2>
+                            
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-sm-6 m-b-10">
-                    <div class="ar-1-1" style="height: 208.125px;">
-                      <div class="widget-4 panel no-border bg-primary widget widget-loader-circle-lg no-margin">
-                        <div class="panel-heading">
-                          <div class="panel-controls">
-                            <ul>
-                              <li><a href="#" class="portlet-refresh" data-toggle="refresh"></a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div class="panel-body">
-                          <div class="pull-bottom bottom-left bottom-right padding-25">
-                            <br>
-                                <h2 class="text-white" style="padding-left: 15px;">Vuelos del mes: <?php echo $flights; ?></h2>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-6 m-b-10">
-                    <div class="ar-1-1" style="height: 208.125px;">
-                      <div class="widget-5 panel no-border bg-primary widget widget-loader-circle-lg no-margin">
-                        <div class="panel-heading">
-                          <div class="panel-controls">
-                            <ul>
-                              <li><a href="#" class="portlet-refresh" data-toggle="refresh"></a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div class="panel-body">
-                          <div class="pull-bottom bottom-left bottom-right padding-25">
-                            <br>
-                                <h3 class="text-white" style="padding-left: 15px;">Total de reservas: <?php echo $tickets; ?></h3>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-               Filler 
               
             </div>
         </body>

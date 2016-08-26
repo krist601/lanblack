@@ -17,7 +17,7 @@
 <div class="questionaires view">
     <div class="vd_title-section clearfix">
         <div class="vd_panel-header">
-            <h1>Editar Comida</h1>
+            <h1>Editar Familiar</h1>
         </div>
     </div>  
     <div class="vd_content-section clearfix">
@@ -35,12 +35,7 @@
                         <?php echo $this->Form->input('name', array('label' => 'Nombre', 'class' => 'form-control'));?>
                     </div>
                     <div class="form-group form-group-default" aria-required="true">
-                        <?php echo $this->Form->input('email', array('label' => 'Correo', 'class' => 'form-control'));?>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group form-group-default" aria-required="true">
-                        <?php echo $this->Form->input('observation', array('label' => 'Observaciones','type'=>'textarea','style'=>' height: 70%;', 'class' => 'form-control'));?>
+                        <?php echo $this->Form->input('identifier', array('label' => 'RUT', 'class' => 'form-control'));?>
                     </div>
                 </div>
                 <br>

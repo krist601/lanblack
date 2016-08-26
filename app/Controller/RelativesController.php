@@ -49,16 +49,15 @@ class RelativesController extends AppController {
                     $nameBlack=$black['UserBlack']['name'];
                 }
                 $this->set('idBlack',$idBlack);
-                $this->set('nameBlack',$nameBlack);
+                $this->set('nameBlack',$this->decryptAES128($nameBlack,"LanTaMeNCrYpTKri"));
                 
 		if ($this->request->is('post')) {
                     if($idUserBlack){
 			$this->Relative->create();
                         $this->request->data['Relative']['UserBlack_idUserBlack']=$idUserBlack;
                         $this->request->data['Relative']['name']=$this->encryptAES128($this->request->data['Relative']['name'],"LanTaMeNCrYpTKri");
-                        $this->request->data['Relative']['email']=$this->encryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
+                        $this->request->data['Relative']['identifier']=$this->encryptAES128($this->request->data['Relative']['identifier'],"LanTaMeNCrYpTKri");
                         $this->request->data['Relative']['relativeType']=$this->encryptAES128($this->request->data['Relative']['relativeType'],"LanTaMeNCrYpTKri");
-                        $this->request->data['Relative']['observation']=$this->encryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
 			if ($this->Relative->save($this->request->data)) {
 				$this->Session->setFlash('<div class="alert alert-success"> <span class="vd_alert-icon"><i class="fa fa-check-circle vd_green"></i></span><strong> Exito! </strong>El Familiar se a <a href="#" class="alert-link">Creado con Éxito</a>. </div>');
 				if($idUserBlack){
@@ -68,9 +67,8 @@ class RelativesController extends AppController {
                                 }
 			} else {
                                 $this->request->data['Relative']['name']=$this->decryptAES128($this->request->data['Relative']['name'],"LanTaMeNCrYpTKri");
-                                $this->request->data['Relative']['email']=$this->decryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
+                                $this->request->data['Relative']['identifier']=$this->decryptAES128($this->request->data['Relative']['identifier'],"LanTaMeNCrYpTKri");
                                 $this->request->data['Relative']['relativeType']=$this->decryptAES128($this->request->data['Relative']['relativeType'],"LanTaMeNCrYpTKri");
-                                $this->request->data['Relative']['observation']=$this->decryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
 				$this->Session->setFlash('<div class="alert alert-danger"> <span class="vd_alert-icon"><i class="fa fa-exclamation-circle vd_red"></i></span><strong>  Error! </strong> El Familiar no pudo ser creado, intenta nuevamente mas tarde </div>');
 			}
                     }else{
@@ -104,9 +102,8 @@ class RelativesController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
                     $this->request->data['Relative']['idRelative']=$id;
                         $this->request->data['Relative']['name']=$this->encryptAES128($this->request->data['Relative']['name'],"LanTaMeNCrYpTKri");
-                        $this->request->data['Relative']['email']=$this->encryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
+                        $this->request->data['Relative']['identifier']=$this->encryptAES128($this->request->data['Relative']['identifier'],"LanTaMeNCrYpTKri");
                         $this->request->data['Relative']['relativeType']=$this->encryptAES128($this->request->data['Relative']['relativeType'],"LanTaMeNCrYpTKri");
-                        $this->request->data['Relative']['observation']=$this->encryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
 			if ($this->Relative->save($this->request->data)) {
 				$this->Session->setFlash('<div class="alert alert-success"> <span class="vd_alert-icon"><i class="fa fa-check-circle vd_green"></i></span><strong> Exito! </strong>El Familiar se a editado con éxito. </div>');
 				if($idUserBlack){
@@ -116,9 +113,8 @@ class RelativesController extends AppController {
                                 }
 			} else {
                                 $this->request->data['Relative']['name']=$this->decryptAES128($this->request->data['Relative']['name'],"LanTaMeNCrYpTKri");
-                                $this->request->data['Relative']['email']=$this->decryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
+                                $this->request->data['Relative']['identifier']=$this->decryptAES128($this->request->data['Relative']['identifier'],"LanTaMeNCrYpTKri");
                                 $this->request->data['Relative']['relativeType']=$this->decryptAES128($this->request->data['Relative']['relativeType'],"LanTaMeNCrYpTKri");
-                                $this->request->data['Relative']['observation']=$this->decryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
 				$this->Session->setFlash('<div class="alert alert-danger"> <span class="vd_alert-icon"><i class="fa fa-exclamation-circle vd_red"></i></span><strong>Error! </strong>El Familiar no pudo ser editado, Intenta nuevamente </div>');
 			}
                     $this->set('idRelative',$id);
@@ -127,9 +123,8 @@ class RelativesController extends AppController {
 			$options = array('conditions' => array('Relative.' . $this->Relative->primaryKey => $id));
 			$this->request->data = $this->Relative->find('first', $options);
                         $this->request->data['Relative']['name']=$this->decryptAES128($this->request->data['Relative']['name'],"LanTaMeNCrYpTKri");
-                        $this->request->data['Relative']['email']=$this->decryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
+                        $this->request->data['Relative']['identifier']=$this->decryptAES128($this->request->data['Relative']['identifier'],"LanTaMeNCrYpTKri");
                         $this->request->data['Relative']['relativeType']=$this->decryptAES128($this->request->data['Relative']['relativeType'],"LanTaMeNCrYpTKri");
-                        $this->request->data['Relative']['observation']=$this->decryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
                         $this->set('idRelative',$id);
 		}
 	}
@@ -167,6 +162,17 @@ class RelativesController extends AppController {
             $options = array('conditions' => array('UserBlack.' . $this->UserBlack->primaryKey => $idUserBlack));
 
             $userBla = $this->UserBlack->find('first', $options);
+            $userBlaRelative = $this->UserBlack->query("SELECT relativeType FROM `Relative` WHERE `UserBlack_idUserBlack`=12");
+            $relativeType=0;
+            if($userBlaRelative){
+            	$userBlaRelativeDesc = $this->decryptAES128($userBlaRelative[0]['Relative']['relativeType'],"LanTaMeNCrYpTKri");
+            	if(($userBlaRelativeDesc=="Padre")||($userBlaRelativeDesc=="Madre")){
+	            	$relativeType=1;
+            	}else{
+	            	$relativeType=2;
+            	}
+            }
+            $this->set('relativeType',$relativeType);
             if($userBla['UserBlack']['completed']!="1"){
                 $idBlack="";
                 $nameBlack="";
@@ -176,16 +182,15 @@ class RelativesController extends AppController {
                     $nameBlack=$black['UserBlack']['name'];
                 }
                 $this->set('idBlack',$idBlack);
-                $this->set('nameBlack',$nameBlack);
+                $this->set('nameBlack',$this->decryptAES128($nameBlack,"LanTaMeNCrYpTKri"));
                 
 		if ($this->request->is('post')) {
                     if($idUserBlack){
 			$this->Relative->create();
                         $this->request->data['Relative']['UserBlack_idUserBlack']=$idUserBlack;
                         $this->request->data['Relative']['name']=$this->encryptAES128($this->request->data['Relative']['name'],"LanTaMeNCrYpTKri");
-                        $this->request->data['Relative']['email']=$this->encryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
+                        $this->request->data['Relative']['identifier']=$this->encryptAES128($this->request->data['Relative']['identifier'],"LanTaMeNCrYpTKri");
                         $this->request->data['Relative']['relativeType']=$this->encryptAES128($this->request->data['Relative']['relativeType'],"LanTaMeNCrYpTKri");
-                        $this->request->data['Relative']['observation']=$this->encryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
 			if ($this->Relative->save($this->request->data)) {
 				$this->Session->setFlash('<div class="alert alert-success"> <span class="vd_alert-icon"><i class="fa fa-check-circle vd_green"></i></span><strong> Exito! </strong>El Familiar se a <a href="#" class="alert-link">Creado con Éxito</a>. </div>');
 				if($idUserBlack){
@@ -195,9 +200,8 @@ class RelativesController extends AppController {
                                 }
 			} else {
                                 $this->request->data['Relative']['name']=$this->decryptAES128($this->request->data['Relative']['name'],"LanTaMeNCrYpTKri");
-                                $this->request->data['Relative']['email']=$this->decryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
+                                $this->request->data['Relative']['identifier']=$this->decryptAES128($this->request->data['Relative']['identifier'],"LanTaMeNCrYpTKri");
                                 $this->request->data['Relative']['relativeType']=$this->decryptAES128($this->request->data['Relative']['relativeType'],"LanTaMeNCrYpTKri");
-                                $this->request->data['Relative']['observation']=$this->decryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
 				$this->Session->setFlash('<div class="alert alert-danger"> <span class="vd_alert-icon"><i class="fa fa-exclamation-circle vd_red"></i></span><strong>  Error! </strong> El Familiar no pudo ser creado, intenta nuevamente mas tarde </div>');
 			}
                     }else{
@@ -225,6 +229,17 @@ class RelativesController extends AppController {
             $options = array('conditions' => array('UserBlack.' . $this->UserBlack->primaryKey => $idUserBlack));
 
             $userBla = $this->UserBlack->find('first', $options);
+            $userBlaRelative = $this->UserBlack->query("SELECT relativeType FROM `Relative` WHERE `UserBlack_idUserBlack`=12");
+            $relativeType=0;
+            if($userBlaRelative){
+            	$userBlaRelativeDesc = $this->decryptAES128($userBlaRelative[0]['Relative']['relativeType'],"LanTaMeNCrYpTKri");
+            	if(($userBlaRelativeDesc=="Padre")||($userBlaRelativeDesc=="Madre")){
+	            	$relativeType=1;
+            	}else{
+	            	$relativeType=2;
+            	}
+            }
+            $this->set('relativeType',$relativeType);
             if($userBla['UserBlack']['completed']!="1"){
                     
                 $idBlack="";
@@ -242,9 +257,10 @@ class RelativesController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
                     $this->request->data['Relative']['idRelative']=$id;
                         $this->request->data['Relative']['name']=$this->encryptAES128($this->request->data['Relative']['name'],"LanTaMeNCrYpTKri");
-                        $this->request->data['Relative']['email']=$this->encryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
-                        $this->request->data['Relative']['relativeType']=$this->encryptAES128($this->request->data['Relative']['relativeType'],"LanTaMeNCrYpTKri");
-                        $this->request->data['Relative']['observation']=$this->encryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
+                        //$this->request->data['Relative']['email']=$this->encryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
+                        $this->request->data['Relative']['identifier']=$this->encryptAES128($this->request->data['Relative']['identifier'],"LanTaMeNCrYpTKri");
+                        //$this->request->data['Relative']['relativeType']=$this->encryptAES128($this->request->data['Relative']['relativeType'],"LanTaMeNCrYpTKri");
+                        //$this->request->data['Relative']['observation']=$this->encryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
 			if ($this->Relative->save($this->request->data)) {
 				$this->Session->setFlash('<div class="alert alert-success"> <span class="vd_alert-icon"><i class="fa fa-check-circle vd_green"></i></span><strong> Exito! </strong>El Familiar se a editado con éxito. </div>');
 				if($idUserBlack){
@@ -254,9 +270,10 @@ class RelativesController extends AppController {
                                 }
 			} else {
                                 $this->request->data['Relative']['name']=$this->decryptAES128($this->request->data['Relative']['name'],"LanTaMeNCrYpTKri");
-                                $this->request->data['Relative']['email']=$this->decryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
+                                //$this->request->data['Relative']['email']=$this->decryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
+                        $this->request->data['Relative']['identifier']=$this->decryptAES128($this->request->data['Relative']['identifier'],"LanTaMeNCrYpTKri");
                                 $this->request->data['Relative']['relativeType']=$this->decryptAES128($this->request->data['Relative']['relativeType'],"LanTaMeNCrYpTKri");
-                                $this->request->data['Relative']['observation']=$this->decryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
+                                //$this->request->data['Relative']['observation']=$this->decryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
 				$this->Session->setFlash('<div class="alert alert-danger"> <span class="vd_alert-icon"><i class="fa fa-exclamation-circle vd_red"></i></span><strong>Error! </strong>El Familiar no pudo ser editado, Intenta nuevamente </div>');
 			}
                     $this->set('idRelative',$id);
@@ -265,9 +282,10 @@ class RelativesController extends AppController {
 			$options = array('conditions' => array('Relative.' . $this->Relative->primaryKey => $id));
 			$this->request->data = $this->Relative->find('first', $options);
                         $this->request->data['Relative']['name']=$this->decryptAES128($this->request->data['Relative']['name'],"LanTaMeNCrYpTKri");
-                        $this->request->data['Relative']['email']=$this->decryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
+                        //$this->request->data['Relative']['email']=$this->decryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
                         $this->request->data['Relative']['relativeType']=$this->decryptAES128($this->request->data['Relative']['relativeType'],"LanTaMeNCrYpTKri");
-                        $this->request->data['Relative']['observation']=$this->decryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
+                        //$this->request->data['Relative']['observation']=$this->decryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
+                        $this->request->data['Relative']['identifier']=$this->decryptAES128($this->request->data['Relative']['identifier'],"LanTaMeNCrYpTKri");
                         $this->set('idRelative',$id);
 		}
             }else{
@@ -318,6 +336,17 @@ class RelativesController extends AppController {
             $options = array('conditions' => array('UserBlack.' . $this->UserBlack->primaryKey => $idUserBlack));
 
             $userBla = $this->UserBlack->find('first', $options);
+            $userBlaRelative = $this->UserBlack->query("SELECT relativeType FROM `Relative` WHERE `UserBlack_idUserBlack`=12");
+            $relativeType=0;
+            if($userBlaRelative){
+            	$userBlaRelativeDesc = $this->decryptAES128($userBlaRelative[0]['Relative']['relativeType'],"LanTaMeNCrYpTKri");
+            	if(($userBlaRelativeDesc=="Padre")||($userBlaRelativeDesc=="Madre")){
+	            	$relativeType=1;
+            	}else{
+	            	$relativeType=2;
+            	}
+            }
+            $this->set('relativeType',$relativeType);
             if($userBla['UserBlack']['completed']!="1"){
                 $idBlack="";
                 $nameBlack="";
@@ -327,16 +356,17 @@ class RelativesController extends AppController {
                     $nameBlack=$black['UserBlack']['name'];
                 }
                 $this->set('idBlack',$idBlack);
-                $this->set('nameBlack',$nameBlack);
+                $this->set('nameBlack',$this->decryptAES128($nameBlack,"LanTaMeNCrYpTKri"));
                 
 		if ($this->request->is('post')) {
                     if($idUserBlack){
 			$this->Relative->create();
                         $this->request->data['Relative']['UserBlack_idUserBlack']=$idUserBlack;
                         $this->request->data['Relative']['name']=$this->encryptAES128($this->request->data['Relative']['name'],"LanTaMeNCrYpTKri");
-                        $this->request->data['Relative']['email']=$this->encryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
+                        //$this->request->data['Relative']['email']=$this->encryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
                         $this->request->data['Relative']['relativeType']=$this->encryptAES128($this->request->data['Relative']['relativeType'],"LanTaMeNCrYpTKri");
-                        $this->request->data['Relative']['observation']=$this->encryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
+                        //$this->request->data['Relative']['observation']=$this->encryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
+                        $this->request->data['Relative']['identifier']=$this->encryptAES128($this->request->data['Relative']['identifier'],"LanTaMeNCrYpTKri");
 			if ($this->Relative->save($this->request->data)) {
 				$this->Session->setFlash('<div class="alert alert-success"> <span class="vd_alert-icon"><i class="fa fa-check-circle vd_green"></i></span><strong> Success! </strong>The relative is successfully created. </div>');
 				if($idUserBlack){
@@ -346,9 +376,10 @@ class RelativesController extends AppController {
                                 }
 			} else {
                                 $this->request->data['Relative']['name']=$this->decryptAES128($this->request->data['Relative']['name'],"LanTaMeNCrYpTKri");
-                                $this->request->data['Relative']['email']=$this->decryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
+                                //$this->request->data['Relative']['email']=$this->decryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
                                 $this->request->data['Relative']['relativeType']=$this->decryptAES128($this->request->data['Relative']['relativeType'],"LanTaMeNCrYpTKri");
-                                $this->request->data['Relative']['observation']=$this->decryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
+                                //$this->request->data['Relative']['observation']=$this->decryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
+                        $this->request->data['Relative']['identifier']=$this->encryptAES128($this->request->data['Relative']['identifier'],"LanTaMeNCrYpTKri");
 				$this->Session->setFlash('<div class="alert alert-danger"> <span class="vd_alert-icon"><i class="fa fa-exclamation-circle vd_red"></i></span><strong>  Error! </strong> The relative could not be created, try again later</div>');
 			}
                     }else{
@@ -377,6 +408,17 @@ class RelativesController extends AppController {
             $options = array('conditions' => array('UserBlack.' . $this->UserBlack->primaryKey => $idUserBlack));
 
             $userBla = $this->UserBlack->find('first', $options);
+            $userBlaRelative = $this->UserBlack->query("SELECT relativeType FROM `Relative` WHERE `UserBlack_idUserBlack`=12");
+            $relativeType=0;
+            if($userBlaRelative){
+            	$userBlaRelativeDesc = $this->decryptAES128($userBlaRelative[0]['Relative']['relativeType'],"LanTaMeNCrYpTKri");
+            	if(($userBlaRelativeDesc=="Padre")||($userBlaRelativeDesc=="Madre")){
+	            	$relativeType=1;
+            	}else{
+	            	$relativeType=2;
+            	}
+            }
+            $this->set('relativeType',$relativeType);
             if($userBla['UserBlack']['completed']!="1"){
                 $idBlack="";
                 $nameBlack="";
@@ -393,9 +435,10 @@ class RelativesController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
                     $this->request->data['Relative']['idRelative']=$id;
                         $this->request->data['Relative']['name']=$this->encryptAES128($this->request->data['Relative']['name'],"LanTaMeNCrYpTKri");
-                        $this->request->data['Relative']['email']=$this->encryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
+                        //$this->request->data['Relative']['email']=$this->encryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
                         $this->request->data['Relative']['relativeType']=$this->encryptAES128($this->request->data['Relative']['relativeType'],"LanTaMeNCrYpTKri");
-                        $this->request->data['Relative']['observation']=$this->encryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
+                        //$this->request->data['Relative']['observation']=$this->encryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
+                        $this->request->data['Relative']['identifier']=$this->encryptAES128($this->request->data['Relative']['identifier'],"LanTaMeNCrYpTKri");
 			if ($this->Relative->save($this->request->data)) {
 				$this->Session->setFlash('<div class="alert alert-success"> <span class="vd_alert-icon"><i class="fa fa-check-circle vd_green"></i></span><strong> Success! </strong>The relative is successfully edited. </div>');
 				if($idUserBlack){
@@ -405,9 +448,10 @@ class RelativesController extends AppController {
                                 }
 			} else {
                                 $this->request->data['Relative']['name']=$this->decryptAES128($this->request->data['Relative']['name'],"LanTaMeNCrYpTKri");
-                                $this->request->data['Relative']['email']=$this->decryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
+                                //$this->request->data['Relative']['email']=$this->decryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
                                 $this->request->data['Relative']['relativeType']=$this->decryptAES128($this->request->data['Relative']['relativeType'],"LanTaMeNCrYpTKri");
-                                $this->request->data['Relative']['observation']=$this->decryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
+                               // $this->request->data['Relative']['observation']=$this->decryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
+                        $this->request->data['Relative']['identifier']=$this->decryptAES128($this->request->data['Relative']['identifier'],"LanTaMeNCrYpTKri");
 				$this->Session->setFlash('<div class="alert alert-danger"> <span class="vd_alert-icon"><i class="fa fa-exclamation-circle vd_red"></i></span><strong>Error! </strong>The relative could not be created, try again later  </div>');
 			}
                     $this->set('idRelative',$id);
@@ -416,9 +460,10 @@ class RelativesController extends AppController {
 			$options = array('conditions' => array('Relative.' . $this->Relative->primaryKey => $id));
 			$this->request->data = $this->Relative->find('first', $options);
                         $this->request->data['Relative']['name']=$this->decryptAES128($this->request->data['Relative']['name'],"LanTaMeNCrYpTKri");
-                        $this->request->data['Relative']['email']=$this->decryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
+                        //$this->request->data['Relative']['email']=$this->decryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
                         $this->request->data['Relative']['relativeType']=$this->decryptAES128($this->request->data['Relative']['relativeType'],"LanTaMeNCrYpTKri");
-                        $this->request->data['Relative']['observation']=$this->decryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
+                        //$this->request->data['Relative']['observation']=$this->decryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri"); 
+                        $this->request->data['Relative']['identifier']=$this->decryptAES128($this->request->data['Relative']['identifier'],"LanTaMeNCrYpTKri");
                         $this->set('idRelative',$id);
 		}
             }else{
@@ -469,6 +514,17 @@ class RelativesController extends AppController {
             $options = array('conditions' => array('UserBlack.' . $this->UserBlack->primaryKey => $idUserBlack));
 
             $userBla = $this->UserBlack->find('first', $options);
+            $userBlaRelative = $this->UserBlack->query("SELECT relativeType FROM `Relative` WHERE `UserBlack_idUserBlack`=12");
+            $relativeType=0;
+            if($userBlaRelative){
+            	$userBlaRelativeDesc = $this->decryptAES128($userBlaRelative[0]['Relative']['relativeType'],"LanTaMeNCrYpTKri");
+            	if(($userBlaRelativeDesc=="Padre")||($userBlaRelativeDesc=="Madre")){
+	            	$relativeType=1;
+            	}else{
+	            	$relativeType=2;
+            	}
+            }
+            $this->set('relativeType',$relativeType);
             if($userBla['UserBlack']['completed']!="1"){
                 $idBlack="";
                 $nameBlack="";
@@ -478,16 +534,17 @@ class RelativesController extends AppController {
                     $nameBlack=$black['UserBlack']['name'];
                 }
                 $this->set('idBlack',$idBlack);
-                $this->set('nameBlack',$nameBlack);
+                $this->set('nameBlack',$this->decryptAES128($nameBlack,"LanTaMeNCrYpTKri"));
                 
 		if ($this->request->is('post')) {
                     if($idUserBlack){
 			$this->Relative->create();
                         $this->request->data['Relative']['UserBlack_idUserBlack']=$idUserBlack;
                         $this->request->data['Relative']['name']=$this->encryptAES128($this->request->data['Relative']['name'],"LanTaMeNCrYpTKri");
-                        $this->request->data['Relative']['email']=$this->encryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
+                        //$this->request->data['Relative']['email']=$this->encryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
                         $this->request->data['Relative']['relativeType']=$this->encryptAES128($this->request->data['Relative']['relativeType'],"LanTaMeNCrYpTKri");
-                        $this->request->data['Relative']['observation']=$this->encryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
+                        //$this->request->data['Relative']['observation']=$this->encryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
+                        $this->request->data['Relative']['identifier']=$this->encryptAES128($this->request->data['Relative']['identifier'],"LanTaMeNCrYpTKri");
 			if ($this->Relative->save($this->request->data)) {
 				$this->Session->setFlash('<div class="alert alert-success"> <span class="vd_alert-icon"><i class="fa fa-check-circle vd_green"></i></span><strong> Sucesso! </strong>A Família é um <a href="#" class="alert-link">Criado com Sucesso</a>. </div>');
 				if($idUserBlack){
@@ -497,9 +554,10 @@ class RelativesController extends AppController {
                                 }
 			} else {
                                 $this->request->data['Relative']['name']=$this->decryptAES128($this->request->data['Relative']['name'],"LanTaMeNCrYpTKri");
-                                $this->request->data['Relative']['email']=$this->decryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
+                                //$this->request->data['Relative']['email']=$this->decryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
                                 $this->request->data['Relative']['relativeType']=$this->decryptAES128($this->request->data['Relative']['relativeType'],"LanTaMeNCrYpTKri");
-                                $this->request->data['Relative']['observation']=$this->decryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
+                                //$this->request->data['Relative']['observation']=$this->decryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
+                        $this->request->data['Relative']['identifier']=$this->encryptAES128($this->request->data['Relative']['identifier'],"LanTaMeNCrYpTKri");
 				$this->Session->setFlash('<div class="alert alert-danger"> <span class="vd_alert-icon"><i class="fa fa-exclamation-circle vd_red"></i></span><strong>  Erro! </strong> A família não pôde ser criado, tente novamente mais tarde </div>');
 			}
                     }else{
@@ -527,6 +585,17 @@ class RelativesController extends AppController {
             $options = array('conditions' => array('UserBlack.' . $this->UserBlack->primaryKey => $idUserBlack));
 
             $userBla = $this->UserBlack->find('first', $options);
+            $userBlaRelative = $this->UserBlack->query("SELECT relativeType FROM `Relative` WHERE `UserBlack_idUserBlack`=12");
+            $relativeType=0;
+            if($userBlaRelative){
+            	$userBlaRelativeDesc = $this->decryptAES128($userBlaRelative[0]['Relative']['relativeType'],"LanTaMeNCrYpTKri");
+            	if(($userBlaRelativeDesc=="Padre")||($userBlaRelativeDesc=="Madre")){
+	            	$relativeType=1;
+            	}else{
+	            	$relativeType=2;
+            	}
+            }
+            $this->set('relativeType',$relativeType);
             if($userBla['UserBlack']['completed']!="1"){
                     
                 $idBlack="";
@@ -544,9 +613,10 @@ class RelativesController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
                     $this->request->data['Relative']['idRelative']=$id;
                         $this->request->data['Relative']['name']=$this->encryptAES128($this->request->data['Relative']['name'],"LanTaMeNCrYpTKri");
-                        $this->request->data['Relative']['email']=$this->encryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
+                        //$this->request->data['Relative']['email']=$this->encryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
                         $this->request->data['Relative']['relativeType']=$this->encryptAES128($this->request->data['Relative']['relativeType'],"LanTaMeNCrYpTKri");
-                        $this->request->data['Relative']['observation']=$this->encryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
+                        //$this->request->data['Relative']['observation']=$this->encryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
+                        $this->request->data['Relative']['identifier']=$this->encryptAES128($this->request->data['Relative']['identifier'],"LanTaMeNCrYpTKri");
 			if ($this->Relative->save($this->request->data)) {
 				$this->Session->setFlash('<div class="alert alert-success"> <span class="vd_alert-icon"><i class="fa fa-check-circle vd_green"></i></span><strong> Sucesso! </strong>A família é editado com sucesso </div>');
 				if($idUserBlack){
@@ -556,9 +626,8 @@ class RelativesController extends AppController {
                                 }
 			} else {
                                 $this->request->data['Relative']['name']=$this->decryptAES128($this->request->data['Relative']['name'],"LanTaMeNCrYpTKri");
-                                $this->request->data['Relative']['email']=$this->decryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
+                                $this->request->data['Relative']['identifier']=$this->decryptAES128($this->request->data['Relative']['identifier'],"LanTaMeNCrYpTKri");
                                 $this->request->data['Relative']['relativeType']=$this->decryptAES128($this->request->data['Relative']['relativeType'],"LanTaMeNCrYpTKri");
-                                $this->request->data['Relative']['observation']=$this->decryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
 				$this->Session->setFlash('<div class="alert alert-danger"> <span class="vd_alert-icon"><i class="fa fa-exclamation-circle vd_red"></i></span><strong>Erro! </strong>A família não poderia ser editadas, tente novamente </div>');
 			}
                     $this->set('idRelative',$id);
@@ -567,9 +636,10 @@ class RelativesController extends AppController {
 			$options = array('conditions' => array('Relative.' . $this->Relative->primaryKey => $id));
 			$this->request->data = $this->Relative->find('first', $options);
                         $this->request->data['Relative']['name']=$this->decryptAES128($this->request->data['Relative']['name'],"LanTaMeNCrYpTKri");
-                        $this->request->data['Relative']['email']=$this->decryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
+                        //$this->request->data['Relative']['email']=$this->decryptAES128($this->request->data['Relative']['email'],"LanTaMeNCrYpTKri");
                         $this->request->data['Relative']['relativeType']=$this->decryptAES128($this->request->data['Relative']['relativeType'],"LanTaMeNCrYpTKri");
-                        $this->request->data['Relative']['observation']=$this->decryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
+                        $this->request->data['Relative']['identifier']=$this->decryptAES128($this->request->data['Relative']['identifier'],"LanTaMeNCrYpTKri");
+                        //$this->request->data['Relative']['observation']=$this->decryptAES128($this->request->data['Relative']['observation'],"LanTaMeNCrYpTKri");
                         $this->set('idRelative',$id);
 		}
             }else{

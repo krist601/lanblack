@@ -36,6 +36,8 @@ class PagesController extends AppController {
  *
  * @var array
  */
+ 
+ public $uses=array('UserBlack');
         function beforeFilter(){    
             $this->Auth->allow('forgetPassword','recoverPassword');
             $user = $this->Session->read('Auth.User');
@@ -64,7 +66,10 @@ class PagesController extends AppController {
             date_default_timezone_set('Chile/Continental');
                 $this->set('screenName', 'home');
                 
-                
+                $usersTotal=$this->UserBlack->query('SELECT count(*) FROM UserBlack');
+                $usersNoResponseTotal=$this->UserBlack->query('SELECT count(*) FROM UserBlack WHERE completed=0');
+                $this->set("usersTotal",$usersTotal[0][0]['count(*)']);
+                $this->set("usersNoResponseTotal",$usersNoResponseTotal[0][0]['count(*)']);
 		$path = func_get_args();
 
 		$count = count($path);

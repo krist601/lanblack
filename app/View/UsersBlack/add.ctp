@@ -26,7 +26,7 @@
                 
                <div class="col-sm-6">
                    <div class="form-group form-group-default" aria-required="true">
-                        <?php echo $this->Form->input('name', array('label' => 'Nombre', 'class' => 'form-control'));?>
+                        <?php echo $this->Form->input('identifier', array('label' => 'RUT/Cédula de Identidad', 'class' => 'form-control'));?>
                     </div>
                     <div class="form-group form-group-default" aria-required="true">
                         <?php echo $this->Form->input('gender', array('Genero' => 'Tipo', 'class' => 'form-control',
@@ -35,6 +35,9 @@
                     </div>
                 </div>
                <div class="col-sm-6">
+                   <div class="form-group form-group-default" aria-required="true">
+                        <?php echo $this->Form->input('name', array('label' => 'Nombre', 'class' => 'form-control'));?>
+                    </div>
                    <div class="form-group form-group-default" aria-required="true">
                         <?php echo $this->Form->input('email', array('label' => 'Correo', 'class' => 'form-control'));?>
                     </div>

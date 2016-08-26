@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta charset="utf-8" />
-    <title>LAN/TAM Black</title>
+    <title>LAN Black</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <!--<link rel="apple-touch-icon" href="pages/ico/60.png">
     <link rel="apple-touch-icon" sizes="76x76" href="pages/ico/76.png">
@@ -72,10 +72,10 @@
                   
                   <div class="col-sm-2"></div>
                     <div class="col-sm-8" style="background: white; border: 1px solid rgba(230, 230, 230, 0.7); padding: 0px;">
-                        <div style="background: #21252d; height: 60px;">
+                        <div style="background: #21252d; height: 90px;">
                             <div>
                                 <div style="padding-top: 15px; padding-left: 30px;">
-                                <img src="<?php echo Router::url('/', true).'/app/webroot/assets/img/logo_white.png' ?>" alt="logo" data-src="<?php echo Router::url('/', true).'/app/webroot/assets/img/logo_white.png' ?>" data-src-retina="<?php echo Router::url('/', true).'/app/webroot/assets/img/logo_white.png' ?>" width="120" height="30">
+                                <img src="<?php echo Router::url('/', true).'/app/webroot/assets/img/logo_white.png' ?>" alt="logo" data-src="<?php echo Router::url('/', true).'/app/webroot/assets/img/logo_white.png' ?>" data-src-retina="<?php echo Router::url('/', true).'/app/webroot/assets/img/logo_white.png' ?>" width="240" height="60">
                               </div>
                             </div>
                         </div>
@@ -88,20 +88,18 @@
                             <table class="table table-hover demo-table-search">
                                 <thead>
                                     <tr>
+                                        <th style="text-align: center;">RUT</th>
                                         <th style="text-align: center;">Nombre</th>
-                                        <th style="text-align: center;">Correo</th>
                                         <th style="text-align: center;">Tipo de Familiar</th>
-                                        <th style="text-align: center;">Observación</th>
                                         <th style="text-align: center;">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach($relatives as $relative){ ?>
                                     <tr>
+                                        <td style="text-align: center;"><?php echo $relative['Relative']['identifier'] ?></td>
                                         <td style="text-align: center;"><?php echo $relative['Relative']['name'] ?></td>
-                                        <td style="text-align: center;"><?php echo $relative['Relative']['email'] ?></td>
                                         <td style="text-align: center;"><?php echo $relative['Relative']['relativeType'] ?></td>
-                                        <td style="text-align: center;"><?php echo $relative['Relative']['observation'] ?></td>
                                         <td class="userBlack-action" style="width:15%;">
                                             <div style="width: 140px;">  
                                             <a style="margin-left: 16px; padding-left: 16px;" ></a>
@@ -118,6 +116,7 @@
                             </table>
                         </div>
                         <a href="<?php echo $this->Html->url(array('controller' => 'relatives', 'action' => 'addFromUserSpa', $idBlack)) ?>" class="btn btn-info start" style="margin: 10px;margin-left: 70px;"> <i class="glyphicon glyphicon-plus"></i> <span> Agregar Familiar</span> </a>
+                        <a href="<?php echo $this->Html->url(array('controller' => 'UsersBlack', 'action' => 'addBlackSpa',$idBlack, $token)) ?>" class="btn btn-info start"> <i class="glyphicon glyphicon-upload"></i> <span> Editar usuario principal</span> </a>
                         <a href="<?php echo $this->Html->url(array('controller' => 'UsersBlack', 'action' => 'finishSpa', $idBlack)) ?>" class="btn btn-info start"> <i class="glyphicon glyphicon-upload"></i> <span> Finalizar</span> </a>
                     </div>
                     <div class="col-sm-2"></div>

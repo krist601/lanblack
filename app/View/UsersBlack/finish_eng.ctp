@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta charset="utf-8" />
-    <title>LAN/TAM Black</title>
+    <title>LAN Black</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <!--<link rel="apple-touch-icon" href="pages/ico/60.png">
     <link rel="apple-touch-icon" sizes="76x76" href="pages/ico/76.png">
@@ -72,10 +72,10 @@
                   
                   <div class="col-sm-2"></div>
                     <div class="col-sm-8" style="background: white; border: 1px solid rgba(230, 230, 230, 0.7); padding: 0px;">
-                        <div style="background: #21252d; height: 60px;">
+                        <div style="background: #21252d; height: 90px;">
                             <div>
                                 <div style="padding-top: 15px; padding-left: 30px;">
-                                <img src="<?php echo Router::url('/', true).'/app/webroot/assets/img/logo_white.png' ?>" alt="logo" data-src="<?php echo Router::url('/', true).'/app/webroot/assets/img/logo_white.png' ?>" data-src-retina="<?php echo Router::url('/', true).'/app/webroot/assets/img/logo_white.png' ?>" width="120" height="30">
+                                <img src="<?php echo Router::url('/', true).'/app/webroot/assets/img/logo_white.png' ?>" alt="logo" data-src="<?php echo Router::url('/', true).'/app/webroot/assets/img/logo_white.png' ?>" data-src-retina="<?php echo Router::url('/', true).'/app/webroot/assets/img/logo_white.png' ?>" width="240" height="60">
                               </div>
                             </div>
                         </div>
@@ -85,6 +85,11 @@
                                 <div class="vd_panel-header">
                                     <h1>Thank you</h1>
                                 </div>
+                                <div style="padding-top: 0px; padding-left: 30px;">
+                            Thank you very much for your information, and soon will be in contact to assist you in your next trip.
+                                </div>
+                                <br>
+                                <br>
                             
                         </div>
                     </div>

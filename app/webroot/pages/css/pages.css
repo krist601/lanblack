@@ -10075,7 +10075,7 @@ Main components
   opacity: .69;
 }
 .widget-1:after {
-  background-image: url("../../assets/img/social/genomaDesk.jpg");
+  background-image: url("../../assets/img/social/usersBlack.jpg");
   background-size: cover;
   content: " ";
   left: 0;
@@ -10112,6 +10112,47 @@ Main components
   padding: 0 49px 56px 42px;
 }
 .widget-1 span.label {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.3);
+}
+.widget-40:after {
+  background-image: url("../../assets/img/social/usersBlack2.jpg");
+  background-size: cover;
+  content: " ";
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 0;
+  opacity: .69;
+}
+.widget-40:before {
+  background-image: url('../img/linear_gradient.png');
+  background-repeat: repeat-x;
+  content: " ";
+  left: 0;
+  right: 0;
+  height: 325px;
+  bottom: 0;
+  position: absolute;
+  z-index: 1;
+}
+.widget-40 > .panel-body .company:nth-child(2) > div {
+  display: table;
+  margin: 0 auto;
+  width: 127px;
+}
+.widget-40 > .panel-body > * {
+  z-index: 1;
+}
+.widget-40 > .panel-body > *:not(.pull-bottom) {
+  position: relative;
+}
+.widget-40 > .panel-body .pull-bottom {
+  padding: 0 49px 56px 42px;
+}
+.widget-40 span.label {
   color: #fff;
   background: rgba(255, 255, 255, 0.3);
 }

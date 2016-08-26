@@ -62,6 +62,65 @@
                             </p>
                           </td>
                         </tr>
+                        <tr>
+                          <td class="">
+                            <p class="small hint-text">Preferencia de idioma</p>
+                            <p class="text-black">
+                              <?php echo h($userBlack['UserBlack']['preferenceLanguage']); if(!($userBlack['UserBlack']['preferenceLanguage'])||($userBlack['UserBlack']['preferenceLanguage']=="")){ echo "<font style='color: gray'>No especificado</font>"; }  ?>
+                            </p>
+                          </td>
+                        </tr>
+                        
+                        
+                        
+                        <tr>
+                          <td class="">
+                            <p class="small hint-text">Silla de Ruedas</p>
+                            <p class="text-black">
+                              <?php echo h($userBlack['UserBlack']['wheelchair']);  if(!($userBlack['UserBlack']['wheelchair'])||($userBlack['UserBlack']['wheelchair']=="")){ echo "<font style='color: gray'>No especificado</font>"; } ?>
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="">
+                            <p class="small hint-text">Comida especial</p>
+                            <p class="text-black">
+                              <?php echo h($userBlack['UserBlack']['specialFood']);  if(!($userBlack['UserBlack']['specialFood'])||($userBlack['UserBlack']['specialFood']=="")){ echo "<font style='color: gray'>No especificado</font>"; } ?>
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="">
+                            <p class="small hint-text">Mascota</p>
+                            <p class="text-black">
+                              <?php echo h($userBlack['UserBlack']['pet']);  if(!($userBlack['UserBlack']['pet'])||($userBlack['UserBlack']['pet']=="")){ echo "<font style='color: gray'>No especificado</font>"; } ?>
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="">
+                            <p class="small hint-text">Diarios y revistas</p>
+                            <p class="text-black">
+                              <?php echo h($userBlack['UserBlack']['newspaperObservation']);  if(!($userBlack['UserBlack']['newspaperObservation'])||($userBlack['UserBlack']['newspaperObservation']=="")){ echo "<font style='color: gray'>No especificado</font>"; } ?>
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="">
+                            <p class="small hint-text">Tragos</p>
+                            <p class="text-black">
+                              <?php echo h($userBlack['UserBlack']['drinkObservation']);  if(!($userBlack['UserBlack']['drinkObservation'])||($userBlack['UserBlack']['drinkObservation']=="")){ echo "<font style='color: gray'>No especificado</font>"; } ?>
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="">
+                            <p class="small hint-text">Numero de la secretaria</p>
+                            <p class="text-black">
+                              <?php echo h($userBlack['UserBlack']['secretaryPhone']);  if(!($userBlack['UserBlack']['secretaryPhone'])||($userBlack['UserBlack']['secretaryPhone']=="")){ echo "<font style='color: gray'>No especificado</font>"; } ?>
+                            </p>
+                          </td>
+                        </tr>
                       </tbody>
                     </table>
                 </div>
@@ -117,6 +176,63 @@
                             </p>
                           </td>
                         </tr>
+                        <tr>
+                          <td class="">
+                            <p class="small hint-text">Preferencia de Asiento (Economy Premium)</p>
+                            <p class="text-black">
+                              <?php echo h($userBlack['UserBlack']['economyBusinessCabin']); if(!($userBlack['UserBlack']['economyBusinessCabin'])||($userBlack['UserBlack']['economyBusinessCabin']=="")){ echo "<font style='color: gray'>No especificado</font>"; }  ?>
+                            </p>
+                          </td>
+                        </tr>
+                        
+                        <tr>
+                          <td class="">
+                            <p class="small hint-text">Observaciones de silla de ruedas</p>
+                            <p class="text-black">
+                              <?php echo h($userBlack['UserBlack']['wheelchairObservation']);  if(!($userBlack['UserBlack']['wheelchairObservation'])||($userBlack['UserBlack']['wheelchairObservation']=="")){ echo "<font style='color: gray'>No especificado</font>"; } ?>
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="">
+                            <p class="small hint-text">Observaciones comida especial</p>
+                            <p class="text-black">
+                              <?php echo h($userBlack['UserBlack']['specialFoodObservation']);  if(!($userBlack['UserBlack']['specialFoodObservation'])||($userBlack['UserBlack']['specialFoodObservation']=="")){ echo "<font style='color: gray'>No especificado</font>"; } ?>
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="">
+                            <p class="small hint-text">Observaciones mascota para asistencia emocional (sólo cabina Economy)</p>
+                            <p class="text-black">
+                              <?php echo h($userBlack['UserBlack']['petObservation']);  if(!($userBlack['UserBlack']['petObservation'])||($userBlack['UserBlack']['petObservation']=="")){ echo "<font style='color: gray'>No especificado</font>"; } ?>
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="">
+                            <p class="small hint-text">Otras observaciones</p>
+                            <p class="text-black">
+                              <?php echo h($userBlack['UserBlack']['otherObservation']);  if(!($userBlack['UserBlack']['otherObservation'])||($userBlack['UserBlack']['otherObservation']=="")){ echo "<font style='color: gray'>No especificado</font>"; } ?>
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="">
+                            <p class="small hint-text">Nombre de la Secretaria</p>
+                            <p class="text-black">
+                              <?php echo h($userBlack['UserBlack']['secretaryName']);  if(!($userBlack['UserBlack']['secretaryName'])||($userBlack['UserBlack']['secretaryName']=="")){ echo "<font style='color: gray'>No especificado</font>"; } ?>
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="">
+                            <p class="small hint-text">Email de la secretaria</p>
+                            <p class="text-black">
+                              <?php echo h($userBlack['UserBlack']['secretaryEmail']);  if(!($userBlack['UserBlack']['secretaryEmail'])||($userBlack['UserBlack']['secretaryEmail']=="")){ echo "<font style='color: gray'>No especificado</font>"; } ?>
+                            </p>
+                          </td>
+                        </tr>
                       </tbody>
                     </table>
                 </div>
@@ -132,7 +248,6 @@
                           <th valign="middle" style="vertical-align:middle;"></th>
                           <th valign="middle" style="vertical-align:middle;"></th>
                           <th valign="middle" style="vertical-align:middle;"></th>
-                          <th valign="middle" style="vertical-align:middle;"></th>
                         </tr>
                       </thead>
                       <tbody>
@@ -140,10 +255,11 @@
                         <?php if (!empty($option['relatives'])): ?> 
                             <?php foreach ($option['relatives'] as $relative): ?>
                                 <tr>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $relative['identifier'] ?></td>
                                         <td>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $relative['name'] ?></td>
-                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $relative['email'] ?></td>
+                                        <!--<td>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $relative['email'] ?></td>-->
                                         <td>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $relative['type'] ?></td>
-                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;Observación: <?php echo $relative['observation'] ?></td>
+                                        <!--<td>&nbsp;&nbsp;&nbsp;&nbsp;Observación: <?php echo $relative['observation'] ?></td>-->
                                         <td class="userBlack-action" style="width:15%;">
                                               <a style="margin-left: 16px; padding-left: 16px;" ></a>
                                               <a data-original-title="Editar" data-toggle="tooltip" data-placement="top" class="btn userBlack-icon vd_bd-yellow vd_yellow" href="<?php echo $this->Html->url(array('controller' => 'relatives', 'action' => 'edit',$relative['idRelative'],$userBlack['UserBlack']['idUserBlack'])) ?>"> <i class="fa fa-pencil"></i> </a>

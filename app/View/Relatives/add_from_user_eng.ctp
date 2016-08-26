@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta charset="utf-8" />
-    <title>LAN/TAM Black</title>
+    <title>LAN Black</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <!--<link rel="apple-touch-icon" href="pages/ico/60.png">
     <link rel="apple-touch-icon" sizes="76x76" href="pages/ico/76.png">
@@ -72,10 +72,10 @@
                   
                   <div class="col-sm-3"></div>
                     <div class="col-sm-6" style="background: white; border: 1px solid rgba(230, 230, 230, 0.7); padding: 0px;">
-                        <div style="background: #21252d; height: 60px;">
+                        <div style="background: #21252d; height: 9px;">
                             <div>
                                 <div style="padding-top: 15px; padding-left: 30px;">
-                                <img src="<?php echo Router::url('/', true).'/app/webroot/assets/img/logo_white.png' ?>" alt="logo" data-src="<?php echo Router::url('/', true).'/app/webroot/assets/img/logo_white.png' ?>" data-src-retina="<?php echo Router::url('/', true).'/app/webroot/assets/img/logo_white.png' ?>" width="120" height="30">
+                                <img src="<?php echo Router::url('/', true).'/app/webroot/assets/img/logo_white.png' ?>" alt="logo" data-src="<?php echo Router::url('/', true).'/app/webroot/assets/img/logo_white.png' ?>" data-src-retina="<?php echo Router::url('/', true).'/app/webroot/assets/img/logo_white.png' ?>" width="240" height="60">
                               </div>
                             </div>
                         </div>
@@ -86,20 +86,39 @@
                                 <div class="vd_panel-header">
                                     <h1>Add Relative</h1>
                                 </div>
-                           <div class="form-group form-group-default" aria-required="true">
-                                <?php echo $this->Form->input('relativeType', array('label' => 'Tipo Família', 'class' => 'form-control',
-                                    'options' => array('Hijo/a'=>'Son/Daughter','Esposo/a' => 'Husband/Wife', 'Cónyuge' => 'Spouse', 'Padre' => 'Father', 'Madre' => 'Mother', 'Otro' => 'Other')
-                                ));?>
+                                <?php if($relativeType==0){ ?>
+		                           <div class="form-group form-group-default" aria-required="true">
+		                                <?php echo $this->Form->input('relativeType', array('label' => 'Tipo de Familiar', 'class' => 'form-control',
+		                                    'options' => array('Hijo/a'=>'Son/Daughter','Esposo/a' => 'Husband/Wife', 'Cónyuge' => 'Spouse', 'Padre' => 'Father', 'Madre' => 'Mother')
+		                                ));?>
+		                            </div>
+                                <?php } ?>
+                                <?php if($relativeType==1){ ?>
+		                           <div class="form-group form-group-default" aria-required="true">
+		                                <?php echo $this->Form->input('relativeType', array('label' => 'Tipo de Familiar', 'class' => 'form-control',
+		                                    'options' => array('Padre' => 'Father', 'Madre' => 'Mother')
+		                                ));?>
+		                            </div>
+                                <?php } ?>
+                                <?php if($relativeType==2){ ?>
+		                           <div class="form-group form-group-default" aria-required="true">
+		                                <?php echo $this->Form->input('relativeType', array('label' => 'Tipo de Familiar', 'class' => 'form-control',
+		                                    'options' => array('Hijo/a'=>'Son/Daughter','Esposo/a' => 'Husband/Wife', 'Cónyuge' => 'Spouse')
+		                                ));?>
+		                            </div>
+                                <?php } ?>
+                            <div class="form-group form-group-default" aria-required="true">
+                                <?php echo $this->Form->input('identifier', array('label' => 'RUT', 'class' => 'form-control'));?>
                             </div>
                             <div class="form-group form-group-default" aria-required="true">
                                 <?php echo $this->Form->input('name', array('label' => 'Name', 'class' => 'form-control'));?>
                             </div>
-                            <div class="form-group form-group-default" aria-required="true">
+                            <!--<div class="form-group form-group-default" aria-required="true">
                                 <?php echo $this->Form->input('email', array('label' => 'Email', 'class' => 'form-control'));?>
                             </div>
                             <div class="form-group form-group-default" aria-required="true">
                                 <?php echo $this->Form->input('observation', array('label' => 'Observations','type'=>'textarea','style'=>' height: 70%;', 'class' => 'form-control'));?>
-                            </div>
+                            </div>-->
                            
                             <?php
                             echo $this->Form->input('Next', array("style"=>"margin:15px;","label" => false, 'div' => 'false', "class" => "btn btn-success start", "type" => "submit"));

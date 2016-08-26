@@ -8,7 +8,6 @@
     </li>
 </ul>
 
-
 <div class="vd_title-section clearfix">
     <div class="vd_panel-header">
         <h1>Lista de Usuarios</h1>
